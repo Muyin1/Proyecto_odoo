@@ -1,0 +1,44 @@
+<odoo>
+    <record id="view_form_taller_vehiculo" model="ir.ui.view">
+        <field name="name">taller.vehiculo.form</field>
+        <field name="model">taller.vehiculo</field>
+        <field name="arch" type="xml">
+            <form string="Vehículo del Cliente">
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="marca"/>
+                        <field name="modelo"/>
+                        <field name="anio"/>
+                        <field name="tipo_motor"/>
+                        <field name="patente"/>
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_taller_vehiculo" model="ir.ui.view">
+        <field name="name">taller.vehiculo.tree</field>
+        <field name="model">taller.vehiculo</field>
+        <field name="arch" type="xml">
+            <tree string="Vehículos">
+                <field name="partner_id"/>
+                <field name="marca"/>
+                <field name="modelo"/>
+                <field name="patente"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_taller_vehiculo" model="ir.actions.act_window">
+        <field name="name">Vehículos</field>
+        <field name="res_model">taller.vehiculo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_taller_root" name="Taller"/>
+    <menuitem id="menu_taller_vehiculo" name="Vehículos" parent="menu_taller_root" action="action_taller_vehiculo"/>
+</odoo>
+

@@ -5,7 +5,7 @@
     'category' : 'Taller',
     'author' : 'Burnet Mauricio Nicolas',
     'depends' : ['base','contacts'],
-    'data' : ['views/vehiculo_views.xml',],
+    'data' : ['views/vehiculo_views.xml', 'views/taller_menu.xml'],
     'installable' : True,
     'applications' : True,
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menú raíz -->
+    <menuitem id="menu_taller_root"
+              name="Taller"
+              sequence="10"/>
+
+    <!-- Submenú para Vehículos -->
+    <menuitem id="menu_taller_vehiculos"
+              name="Vehículos"
+              parent="menu_taller_root"
+              action="action_taller_vehiculo"
+              sequence="10"/>
+</odoo>
