@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_form_taller_visita" model="ir.ui.view">
+        <field name="name">taller.visita.form</field>
+        <field name="model">taller.visita</field>
+        <field name="arch" type="xml">
+            <form string="Visita del Taller">
+                <sheet>
+                    <group>
+                        <field name="vehiculo_id"/>
+                        <field name="fecha"/>
+                        <field name="tipo_trabajo"/>
+                        <field name="notas"/>
+                    </group>
+                    <notebook>
+                        <page string="Piezas Utilizadas">
+                            <field name="piezas_usadas">
+                                <tree editable="bottom">
+                                    <field name="marca"/>
+                                    <field name="codigo_pieza"/>
+                                    <field name="descripcion"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_taller_visita" model="ir.actions.act_window">
+        <field name="name">Visitas</field>
+        <field name="res_model">taller.visita</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_taller_visitas"
+              name="Visitas"
+              parent="menu_taller_root"
+              action="action_taller_visita"
+              sequence="20"/>
+</odoo>
