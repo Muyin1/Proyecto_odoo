@@ -38,7 +38,5 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_taller_root" name="Taller"/>
-    <menuitem id="menu_taller_vehiculo" name="Vehículos" parent="menu_taller_root" action="action_taller_vehiculo"/>
 </odoo>
 
