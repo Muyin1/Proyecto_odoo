@@ -13,7 +13,7 @@ class TallerVehiculo(models.Model):
     patente = fields.Char(string='Patente')
     descripcion = fields.Text(string='Descripción')
 
-    @api.depends('parter_id', 'marca', 'modelo', 'patente')
+    @api.depends('partner_id', 'marca', 'modelo', 'patente')
     def _compute_name(self):
         for record in self:
             cliente = record.partner_id.name or ''
