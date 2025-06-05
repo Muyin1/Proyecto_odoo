@@ -12,6 +12,6 @@ class TallerVisita(models.Model):
         ('cambio_distribucion', 'Cambio de Distribucion'),
         ('otro', 'Otro'),
     ], string='Tipo de Trabajo', required=True)
-    notras = fields.Text(string='Notas')
+    notas = fields.Text(string='Notas')
     piezas_usadas = fields.One2many('taller.visita.pieza', 'visita_id', string='Piezas Utilizadas')
 
