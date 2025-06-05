@@ -1,8 +1,8 @@
 from odoo import models, fields
 
-class Vehiculo(models.Model):
-    _name = 'taller.vehiculo'
-    _description = 'Vehiculo del Cliente'
+class TallerVisita(models.Model):
+    _name = 'taller.visita'
+    _description = 'Visita de Vehiculo al Taller'
 
     vehiculo_id = fields.Many2one('taller.vehiculo', string='Vehiculo', required=True)
     fecha = fields.Date(string='Fecha de la Visita', required=True)

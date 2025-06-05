@@ -1,3 +1,3 @@
 from . import vehiculo
-from . import visita
+from . import TallerVisita
 from . import visita_pieza
