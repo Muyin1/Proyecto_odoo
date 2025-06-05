@@ -4,7 +4,7 @@
     'summary' : 'Registro de vehiculos por cliente para talleres',
     'category' : 'Taller',
     'author' : 'Burnet Mauricio Nicolas',
-    'depends' : ['base','contact'],
+    'depends' : ['base','contacts'],
     'data' : ['views/vehiculo_views.xml',],
     'installable' : True,
     'applications' : True,
