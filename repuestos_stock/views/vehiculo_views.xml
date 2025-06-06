@@ -27,6 +27,7 @@
                 <field name="marca"/>
                 <field name="modelo"/>
                 <field name="version"/>
+                <field name="motor" />
                 <field name="anio"/>
             </tree>
         </field>
