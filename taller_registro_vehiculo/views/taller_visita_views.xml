@@ -34,10 +34,10 @@
         <field name="model">taller.visita</field>
         <field name="arch" type="xml">
             <tree string="Visitas del Taller">
-                <field name="vehiculo_id.partner_id" string="Cliente"/>
-                <field name="vehiculo_id.marca" string="Marca"/>
-                <field name="vehiculo_id.modelo" string="Modelo"/>
-                <field name="vehiculo_id.patente" string="Patente"/>
+                <field name="partner_id" string="Cliente"/>
+                <field name="marca" string="Marca"/>
+                <field name="modelo" string="Modelo"/>
+                <field name="patente" string="Patente"/>
                 <field name="fecha" string="Fecha Entrada"/>
                 <field name="fecha_salida" string="Fecha Salida"/>
                 <field name="tipo_trabajo" string="Trabajo"/>

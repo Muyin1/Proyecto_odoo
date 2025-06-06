@@ -22,6 +22,12 @@ class TallerVisita(models.Model):
     notas = fields.Text(string='Notas')
     piezas_usadas = fields.One2many('taller.visita.pieza', 'visita_id', string='Piezas Utilizadas')
 
+    partner_id = fields.Many2one(related='vehiculo_id.partner_id', string='Cliente', store=True)
+    marca = fields.Char(related='vehiculo_id.marca', string='Marca', store=True)
+    modelo = fields.Char(related='vehiculo_id.modelo', string='Modelo', store=True)
+    patente = fields.Char(related='vehiculo_id.patente', string='Patente', store=True)
+
+
     @api.depends('vehiculo_id', 'tipo_trabajo', 'fecha')
     def _compute_name(self):
         for record in self:
