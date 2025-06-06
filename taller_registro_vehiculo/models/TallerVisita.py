@@ -8,7 +8,7 @@ class TallerVisita(models.Model):
     vehiculo_id = fields.Many2one('taller.vehiculo', string='Vehiculo', required=True)
     fecha = fields.Date(string='Fecha de la Visita', required=True)
     fecha_salida = fields.Date(string='Fecha de Salida')
-    estado = fields.selection([
+    estado = fields.Selection([
         ('pendiente', 'Pendiente'),
         ('completado','Completado')
     ]), string='Estado', default='pendiente'
