@@ -4,7 +4,7 @@ class TallerVisita(models.Model):
     _name = 'taller.visita'
     _description = 'Visita de Vehiculo al Taller'
 
-    name = fields.Char(string='Nombre', compute='_comput_name', store=True)
+    name = fields.Char(string='Nombre', compute='_compute_name', store=True)
     vehiculo_id = fields.Many2one('taller.vehiculo', string='Vehiculo', required=True)
     fecha = fields.Date(string='Fecha de la Visita', required=True)
     tipo_trabajo = fields.Selection([
