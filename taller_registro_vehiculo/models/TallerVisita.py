@@ -21,13 +21,8 @@ class TallerVisita(models.Model):
     notas = fields.Text(string='Notas')
     piezas_usadas = fields.One2many('taller.visita.pieza', 'visita_id', string='Piezas Utilizadas')
 
-    @api.depends('vehiculo_id', 'fecha', 'tipo_trabajo')
+    @api.depends('vehiculo_id', 'tipo_trabajo', 'fecha')
     def _compute_name(self):
         for record in self:
-            vehiculo = record.vehiculo_id
-            cliente = vehiculo.partner_id.name if vehiculo.partner_id else 'Cliente'
-            marca_modelo = f"{vehiculo.marca or ''} {vehiculo.modelo or ''}".strip()
-            patente = vehiculo.patente or ''
-            fecha = record.fecha.strftime('%d/%m/%Y') if record.fecha else ''
-            trabajo = dict(self.fields['tipo_trabajo'].selection).get(record.tipo_trabajo, '')
-            record.name = f"{cliente} - {marca_modelo} ({patente}) - {trabajo} - {fecha}"
+            trabajo_label = dict(self._fields['tipo_trabajo'].selection).get(record.tipo_trabajo, '')
+            record.name = f"{record.vehiculo_id.name or ''} - {trabajo_label} - {record.fecha.strftime('%Y-%m-%d') if record.fecha else ''}"
