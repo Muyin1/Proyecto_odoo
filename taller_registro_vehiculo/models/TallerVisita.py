@@ -11,7 +11,7 @@ class TallerVisita(models.Model):
     estado = fields.Selection([
         ('pendiente', 'Pendiente'),
         ('completado','Completado')
-    ]), string='Estado', default='pendiente'
+    ], string='Estado', default='pendiente')
     tipo_trabajo = fields.Selection([
         ('escaneo', 'Escaneo'),
         ('service', 'Service'),
