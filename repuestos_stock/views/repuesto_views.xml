@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_form_repuesto" model="ir.ui.view">
+        <field name="name">repuestos_stock.repuesto.form</field>
+        <field name="model">repuestos_stock.repuesto</field>
+        <field name="arch" type="xml">
+            <form string="Repuesto">
+                <sheet>
+                    <group>
+                        <field name="codigo"/>
+                        <field name="codigo_oem"/>
+                        <field name="descripcion"/>
+                        <field name="marca_id"/>
+                        <field name="equivalencia_ids"/>
+                        <field name="cantidad"/>
+                        <field name="precio_venta"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_repuesto" model="ir.ui.view">
+        <field name="name">repuestos_stock.repuesto.tree</field>
+        <field name="model">repuestos_stock.repuesto</field>
+        <field name="arch" type="xml">
+            <tree string="Repuestos">
+                <field name="codigo"/>
+                <field name="marca_id"/>
+                <field name="descripcion"/>
+                <field name="cantidad"/>
+                <field name="precio_venta"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_repuestos" model="ir.actions.act_window">
+        <field name="name">Repuestos</field>
+        <field name="res_model">repuestos_stock.repuesto</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_repuestos_root" name="Stock Taller" parent="base.menu_custom" sequence="30"/>
+    <menuitem id="menu_repuestos" name="Repuestos" parent="menu_repuestos_root" action="action_repuestos"/>
+</odoo>
