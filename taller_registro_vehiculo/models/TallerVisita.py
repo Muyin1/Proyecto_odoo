@@ -10,7 +10,8 @@ class TallerVisita(models.Model):
     fecha_salida = fields.Date(string='Fecha de Salida')
     estado = fields.Selection([
         ('pendiente', 'Pendiente'),
-        ('completado','Completado')
+        ('en_proceso','En Proceso'),
+        ('completado','Completado'),
     ], string='Estado', default='pendiente')
     tipo_trabajo = fields.Selection([
         ('escaneo', 'Escaneo'),
