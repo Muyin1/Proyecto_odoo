@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menú raíz -->
+    <menuitem id="menu_repuesto_root"
+              name="Repuesto"
+              sequence="10"/>
+
+    <!-- Submenú para Vehículos -->
+    <menuitem id="menu_repuesto_stock"
+              name="Repuesto"
+              parent="menu_repuesto_root"
+              action="action_taller_vehiculo"
+              sequence="10"/>
+</odoo>
