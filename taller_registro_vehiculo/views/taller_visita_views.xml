@@ -24,21 +24,21 @@
                     </notebook>
                 </sheet>
             </form>
+            <record id='view_tree_taller_visita' model='ir.ui.view'>
+                <field name="name">taller.visita.tree</field>
+                <field name="model">taller.visita</field>
+                <field name="arch" type="xml">
+                    <tree string="Visitas del Taller">
+                        <field name="name"/>
+                        <field name="vehiculo_id"/>
+                        <field name="fecha"/>
+                        <field name="tipo_trabajo"/>
+                    </tree>
+                </field>
+            </record>
         </field>
     </record>
 
-    <record id='view_tree_taller_visita' model='ir.ui.view'>
-        <field name="name">taller.visita.tree</field>
-        <field name="model">taller.visita</field>
-        <field name="arch" type="xml">
-            <tree string="Visitas del Taller">
-                <field name="name"/>
-                <field name="vehiculo_id"/>
-                <field name="fecha"/>
-                <field name="tipo_trabajo"/>
-            </tree>
-        </field>
-    </record>
 
     <record id="action_taller_visita" model="ir.actions.act_window">
         <field name="name">Visitas</field>
