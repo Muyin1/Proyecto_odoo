@@ -11,7 +11,7 @@
                         <field name="codigo_oem"/>
                         <field name="descripcion"/>
                         <field name="marca_id"/>
-                        <field name="equivalencia_ids"/>
+                        <field name="vehiculo_ids"/>
                         <field name="cantidad"/>
                         <field name="precio_venta"/>
                     </group>
