@@ -7,6 +7,11 @@ class TallerVisita(models.Model):
     name = fields.Char(string='Nombre', compute='_compute_name', store=True)
     vehiculo_id = fields.Many2one('taller.vehiculo', string='Vehiculo', required=True)
     fecha = fields.Date(string='Fecha de la Visita', required=True)
+    fecha_salida = fields.Date(string='Fecha de Salida')
+    estado = fields.selection([
+        ('pendiente', 'Pendiente'),
+        ('completado','Completado')
+    ]), string='Estado', default='pendiente'
     tipo_trabajo = fields.Selection([
         ('escaneo', 'Escaneo'),
         ('service', 'Service'),
@@ -19,8 +24,10 @@ class TallerVisita(models.Model):
     @api.depends('vehiculo_id', 'fecha', 'tipo_trabajo')
     def _compute_name(self):
         for record in self:
-            vehiculo = record.vehiculo_id.patente or 'vehiculo'
+            vehiculo = record.vehiculo_id
+            cliente = vehiculo.partner_id.name if vehiculo.partner_id else 'Cliente'
+            marca_modelo = f"{vehiculo.marca or ''} {vehiculo.modelo or ''}".strip()
+            patente = vehiculo.patente or ''
             fecha = record.fecha.strftime('%d/%m/%Y') if record.fecha else ''
             trabajo = dict(self.fields['tipo_trabajo'].selection).get(record.tipo_trabajo, '')
-            record.name = f"{vehiculo} - {trabajo} - {fecha}"
-
+            record.name = f"{cliente} - {marca_modelo} ({patente}) - {trabajo} - {fecha}"

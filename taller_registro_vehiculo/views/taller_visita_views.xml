@@ -8,6 +8,8 @@
                     <group>
                         <field name="vehiculo_id"/>
                         <field name="fecha"/>
+                        <field name="fecha_salida"/>
+                        <field name="estado"/>
                         <field name="tipo_trabajo"/>
                         <field name="notas"/>
                     </group>
@@ -24,18 +26,23 @@
                     </notebook>
                 </sheet>
             </form>
-            <record id='view_tree_taller_visita' model='ir.ui.view'>
-                <field name="name">taller.visita.tree</field>
-                <field name="model">taller.visita</field>
-                <field name="arch" type="xml">
-                    <tree string="Visitas del Taller">
-                        <field name="name"/>
-                        <field name="vehiculo_id"/>
-                        <field name="fecha"/>
-                        <field name="tipo_trabajo"/>
-                    </tree>
-                </field>
-            </record>
+        </field>
+    </record>
+
+    <record id="view_tree_taller_visita" model="ir.ui.view">
+        <field name="name">taller.visita.tree</field>
+        <field name="model">taller.visita</field>
+        <field name="arch" type="xml">
+            <tree string="Visitas del Taller">
+                <field name="vehiculo_id.partner_id" string="Cliente"/>
+                <field name="vehiculo_id.marca" string="Marca"/>
+                <field name="vehiculo_id.modelo" string="Modelo"/>
+                <field name="vehiculo_id.patente" string="Patente"/>
+                <field name="fecha" string="Fecha Entrada"/>
+                <field name="fecha_salida" string="Fecha Salida"/>
+                <field name="tipo_trabajo" string="Trabajo"/>
+                <field name="estado"/>
+            </tree>
         </field>
     </record>
 
