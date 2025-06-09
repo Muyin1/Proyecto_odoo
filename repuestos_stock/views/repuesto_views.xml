@@ -40,6 +40,9 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_repuestos_root" name="Repuestos" parent="base.menu_custom" sequence="30"/>
-    <menuitem id="menu_repuestos" name="Repuestos" parent="menu_repuestos_root" action="action_repuestos"/>
+    <menuitem id="menu_repuestos_stock"
+              name="Repuestos"
+              parent="menu_repuestos_root"
+              action="action_repuestos"
+              sequence="20"/>
 </odoo>

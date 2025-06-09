@@ -3,10 +3,8 @@
     <!-- Menú raíz -->
     <menuitem id="menu_repuesto_root"
           name="Repuestos"
-          sequence="10"
-          action="action_repuestos"
-          parent=""/>
-          
+          sequence="10">
+
     <!-- Submenú: Marcas de Repuestos -->
     <menuitem id="menu_repuesto_marcas"
               name="Marcas"
