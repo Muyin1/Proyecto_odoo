@@ -10,7 +10,7 @@
         'views/vehiculo_views.xml',
         'views/marca_views.xml',
         'views/repuesto_views.xml',
-        'views/repuesto_menu_views.xml'
+        'views/repuesto_menu_views.xml',
     ],
     'installable': True,
     'application': True,

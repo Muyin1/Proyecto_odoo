@@ -1,4 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_repuesto,access.repuestos_stock.repuesto,model_repuestos_stock_repuesto,,1,1,1,1
-access_marca,access.repuestos_stock.marca,model_repuestos_stock_marca,,1,1,1,1
-access_vehiculo,access.repuestos_stock.vehiculo,model_repuestos_stock_vehiculo,,1,1,1,1
+access_repuesto,repuestos_stock.repuesto,model_repuestos_stock_repuesto,,1,1,1,1
+access_marca,repuestos_stock.marca,model_repuestos_stock_marca,,1,1,1,1
+access_vehiculo,repuestos_stock.vehiculo,model_repuestos_stock_vehiculo,,1,1,1,1
