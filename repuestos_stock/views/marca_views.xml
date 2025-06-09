@@ -33,6 +33,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_marcas_root" name="Marcas de Repuestos" parent="base.menu_custom" sequence="10"/>
-    <menuitem id="menu_marcas" name="Marcas" parent="menu_marcas_root" action="action_marcas"/>
+    <menuitem id="menu_marcas" name="Marcas" parent="menu_repuesto_root" action="action_marcas" sequence="20"/>
+
+
 </odoo>
