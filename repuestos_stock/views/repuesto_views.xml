@@ -34,10 +34,23 @@
         </field>
     </record>
 
+    <record id="view_search_repuesto" model="ir.ui.view">
+        <field name="name">repuestos_stock.repuesto.search</field>
+        <field name="model">repuestos_stock.repuesto</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="codigo"/>
+                <field name="descripcion"/>
+                <field name="marca_id"/>
+            </search>
+        </field>
+    </record>
+
     <record id="action_repuestos" model="ir.actions.act_window">
         <field name="name">Repuestos</field>
         <field name="res_model">repuestos_stock.repuesto</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_search_repuesto"/>
     </record>
 
     <menuitem id="menu_repuestos_stock"
