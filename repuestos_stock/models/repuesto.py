@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields,api
 from odoo.exceptions import ValidationError
 
 class Repuesto(models.Model):
@@ -20,5 +20,6 @@ class Repuesto(models.Model):
     @api.Model
     def create(self, vals):
         if self.search([('codigo','=', vals.get('codigo'))]):
-            raise ValidationError(f'El repuesto con código {vals.get('codigo')} ya existe.')
+            codigo = vals.get("codigo")
+            raise ValidationError(f'El repuesto con código {codigo} ya existe.')
         return super(Repuesto, self).create(vals)
