@@ -2,8 +2,8 @@
 <odoo>
     <!-- Menú raíz -->
     <menuitem id="menu_repuesto_root"
-          name="Repuestos"
-          sequence="10">
+              name="Repuestos"
+              sequence="10"/>
 
     <!-- Submenú: Marcas de Repuestos -->
     <menuitem id="menu_repuesto_marcas"

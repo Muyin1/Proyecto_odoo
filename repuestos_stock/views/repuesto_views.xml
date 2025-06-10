@@ -42,7 +42,7 @@
 
     <menuitem id="menu_repuestos_stock"
               name="Repuestos"
-              parent="menu_repuestos_root"
+              parent="menu_repuesto_root"
               action="action_repuestos"
               sequence="20"/>
 </odoo>

@@ -1,4 +1,5 @@
 from odoo import models, fields
+from odoo.exceptions import ValidationError
 
 class Repuesto(models.Model):
     _name = 'repuestos_stock.repuesto'
@@ -11,3 +12,13 @@ class Repuesto(models.Model):
     descripcion = fields.Char(string='Descripcion')
     cantidad = fields.Integer(string='Cantidad en stock', default=0)
     precio_venta = fields.Float(string='Precio de venta')
+
+    _sql_contraints = [
+        ('unique_codigo_repuesto','UNIQUE(codigo)','El código del repuesto debe ser único.')
+    ] 
+    
+    @api.Model
+    def create(self, vals):
+        if self.search([('codigo','=', vals.get('codigo'))]):
+            raise ValidationError(f'El repuesto con código {vals.get('codigo')} ya existe.')
+        return super(Repuesto, self).create(vals)
