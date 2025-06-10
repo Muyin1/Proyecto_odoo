@@ -17,7 +17,7 @@ class Repuesto(models.Model):
         ('unique_codigo_repuesto','UNIQUE(codigo)','El código del repuesto debe ser único.')
     ] 
     
-    @api.Model
+    @api.model
     def create(self, vals):
         if self.search([('codigo','=', vals.get('codigo'))]):
             codigo = vals.get("codigo")
