@@ -40,8 +40,10 @@
         <field name="arch" type="xml">
             <search>
                 <field name="codigo"/>
+                <field name="codigo_oem"/>
                 <field name="descripcion"/>
                 <field name="marca_id"/>
+                <field name="vehiculo_ids"/>
             </search>
         </field>
     </record>
