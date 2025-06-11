@@ -20,7 +20,30 @@
         </xpath>
     </field>
   </record>
-  
+  <record id="view_product_template_tree_repuesto" model="ir.ui.view">
+      <field name="name">product.template.tree.repuesto</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_tree_view"/>
+      <field name="arch" type="xml">
+          <xpath expr="//tree" position="inside">
+              <field name="codigo_repuesto"/>
+              <field name="codigo_oem"/>
+              <field name="vehiculo_ids"/>
+          </xpath>
+      </field>
+  </record>
+  <record id="view_product_template_search_repuesto" model="ir.ui.view">
+      <field name="name">product.template.search.repuesto</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_search_view"/>
+      <field name="arch" type="xml">
+          <xpath expr="//search" position="inside">
+              <field name="codigo_repuesto"/>
+              <field name="codigo_oem"/>
+              <field name="vehiculo_ids"/>
+          </xpath>
+      </field>
+  </record>
   <!-- Heredamos la vista de búsqueda para agregar un filtro de autopartes -->
   <record id="view_product_template_search_autoparte" model="ir.ui.view">
     <field name="name">product.template.search.autoparte</field>
