@@ -1,63 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="view_form_repuesto" model="ir.ui.view">
-        <field name="name">repuestos_stock.repuesto.form</field>
-        <field name="model">repuestos_stock.repuesto</field>
-        <field name="arch" type="xml">
-            <form string="Repuesto">
-                <sheet>
-                    <group>
-                        <field name="codigo"/>
-                        <field name="codigo_oem"/>
-                        <field name="descripcion"/>
-                        <field name="marca_id"/>
-                        <field name="vehiculo_ids"/>
-                        <field name="cantidad"/>
-                        <field name="precio_venta"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+  <!-- Heredamos la vista de formulario de productos para agregar la información de autopartes -->
+  <record id="view_product_template_form_autoparte" model="ir.ui.view">
+    <field name="name">product.template.form.autoparte</field>
+    <field name="model">product.template</field>
+    <!-- Se hereda la vista de formulario base -->
+    <field name="inherit_id" ref="product.product_template_form_view"/>
+    <field name="arch" type="xml">
+        <!-- Insertamos un nuevo grupo dentro de la pestaña 'General Information' -->
+        <xpath expr="//sheet/notebook/page[@string='General Information']" position="inside">
+        <group>
+            <field name="codigo_repuesto"/>
+            <field name="codigo_oem"/>
+            <field name="marca_id"/>
+            <field name="vehiculo_ids" widget="many2many_tags"/>
+            <field name="tipo_id"/>
+            <field name="barcode"/>
+        </group>
+        </xpath>
+    </field>
+  </record>
+  
+  <!-- Heredamos la vista de búsqueda para agregar un filtro de autopartes -->
+  <record id="view_product_template_search_autoparte" model="ir.ui.view">
+    <field name="name">product.template.search.autoparte</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_search_view"/>
+    <field name="arch" type="xml">
+      <!-- Filtro para mostrar solo autopartes -->
+      <xpath expr="//filter[@name='product_type']" position="after">
+         <filter name="autopartes" string="Autopartes" domain="[('codigo_repuesto','!=',False)]"/>
+      </xpath>
+      <!-- Agregar el campo Many2many para Vehículos -->
+      <xpath expr="//field[@name='name']" position="after">
+         <field name="vehiculo_ids" string="Vehículos" widget="many2many_tags"/>
+      </xpath>
+    </field>
+  </record>
 
-    <record id="view_tree_repuesto" model="ir.ui.view">
-        <field name="name">repuestos_stock.repuesto.tree</field>
-        <field name="model">repuestos_stock.repuesto</field>
-        <field name="arch" type="xml">
-            <tree string="Repuestos">
-                <field name="codigo"/>
-                <field name="marca_id"/>
-                <field name="descripcion"/>
-                <field name="cantidad"/>
-                <field name="precio_venta"/>
-            </tree>
-        </field>
-    </record>
-
-    <record id="view_search_repuesto" model="ir.ui.view">
-        <field name="name">repuestos_stock.repuesto.search</field>
-        <field name="model">repuestos_stock.repuesto</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="codigo"/>
-                <field name="codigo_oem"/>
-                <field name="descripcion"/>
-                <field name="marca_id"/>
-                <field name="vehiculo_ids"/>
-            </search>
-        </field>
-    </record>
-
-    <record id="action_repuestos" model="ir.actions.act_window">
-        <field name="name">Repuestos</field>
-        <field name="res_model">repuestos_stock.repuesto</field>
-        <field name="view_mode">tree,form</field>
-        <field name="search_view_id" ref="view_search_repuesto"/>
-    </record>
-
-    <menuitem id="menu_repuestos_stock"
-              name="Repuestos"
-              parent="menu_repuesto_root"
-              action="action_repuestos"
-              sequence="20"/>
+  
+  <!-- Acción para mostrar los productos que son autopartes -->
+  <record id="action_autopartes" model="ir.actions.act_window">
+      <field name="name">Autopartes</field>
+      <field name="res_model">product.template</field>
+      <field name="view_mode">tree,form</field>
+      <!-- El dominio filtra aquellos productos que tengan un código de repuesto -->
+      <field name="domain">[('codigo_repuesto','!=',False)]</field>
+  </record>
+  
+  <!-- Menú para acceder a la lista de autopartes -->
+  <menuitem id="menu_autopartes"
+            name="Autopartes"
+            parent="menu_repuesto_root"
+            action="action_autopartes"
+            sequence="20"/>
 </odoo>
