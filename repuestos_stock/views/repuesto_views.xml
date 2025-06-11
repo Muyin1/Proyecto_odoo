@@ -8,15 +8,15 @@
     <field name="inherit_id" ref="product.product_template_form_view"/>
     <field name="arch" type="xml">
         <!-- Insertamos un nuevo grupo dentro de la pestaña 'General Information' -->
-        <xpath expr="//sheet/notebook/page[@string='General Information']" position="inside">
-        <group>
-            <field name="codigo_repuesto"/>
-            <field name="codigo_oem"/>
-            <field name="marca_id"/>
-            <field name="vehiculo_ids" widget="many2many_tags"/>
-            <field name="tipo_id"/>
-            <field name="barcode"/>
-        </group>
+        <xpath expr="//sheet/notebook/page[1]" position="inside">
+          <group>
+              <field name="codigo_repuesto"/>
+              <field name="codigo_oem"/>
+              <field name="marca_id"/>
+              <field name="vehiculo_ids" widget="many2many_tags"/>
+              <field name="tipo_id"/>
+              <field name="barcode"/>
+          </group>
         </xpath>
     </field>
   </record>
