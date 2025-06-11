@@ -1,7 +1,7 @@
 {
     'name': 'Repuestos Stock',
     'version': '1.0',
-    'depends': ['base'],
+    'depends': ['base', 'product', 'stock'],  
     'author': 'Burnet Mauricio Nicolas',
     'category': 'Inventory',
     'description': 'Gestión de repuestos para taller',
