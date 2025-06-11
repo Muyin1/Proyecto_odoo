@@ -28,11 +28,8 @@
     <field name="inherit_id" ref="product.product_template_search_view"/>
     <field name="arch" type="xml">
       <!-- Filtro para mostrar solo autopartes -->
-      <xpath expr="//filter[@name='product_type']" position="after">
+      <xpath expr="//search" position="inside">
          <filter name="autopartes" string="Autopartes" domain="[('codigo_repuesto','!=',False)]"/>
-      </xpath>
-      <!-- Agregar el campo Many2many para Vehículos -->
-      <xpath expr="//field[@name='name']" position="after">
          <field name="vehiculo_ids" string="Vehículos" widget="many2many_tags"/>
       </xpath>
     </field>
