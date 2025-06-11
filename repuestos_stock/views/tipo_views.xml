@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_form_tipo" model="ir.ui.view">
+        <field name="name">repuestos_stock.tipo.form</field>
+        <field name="model">repuestos_stock.tipo</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de Repuesto">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_tipo" model="ir.ui.view">
+        <field name="name">repuestos_stock.tipo.tree</field>
+        <field name="model">repuestos_stock.tipo</field>
+        <field name="arch" type="xml">
+            <tree string="Tipos de Repuesto">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_tipos" model="ir.actions.act_window">
+        <field name="name">Tipos de Repuesto</field>
+        <field name="res_model">repuestos_stock.tipo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
