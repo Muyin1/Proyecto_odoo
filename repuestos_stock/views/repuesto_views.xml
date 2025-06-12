@@ -20,16 +20,16 @@
         </group>
 
         <!-- Grupo para inyectores -->
-        <group t-attf-class="d-none if [[tipo_repuesto != 'inyector']]">
+        <group t-if="tipo_repuesto === 'inyector'">
           <field name="insulating_color"/>
           <field name="injection_type"/>
         </group>
 
-        <!-- Grupo para pastillas de freno -->
-        <group t-attf-class="d-none if [[tipo_repuesto != 'pastillas_freno']]">
-          <field name="material"/>
-          <field name="espesor"/>
+        <group t-if="tipo_repuesto === 'pastillas_freno'">
+            <field name="material"/>
+            <field name="espesor"/>
         </group>
+
       </xpath>
     </field>
   </record>
@@ -70,7 +70,7 @@
     <record id="action_repuestos" model="ir.actions.act_window">
         <field name="name">Repuestos</field>
         <field name="res_model">product.template</field>
-        <field name="view_mode">tree,form"</field>
+        <field name="view_mode">tree,form</field>
         <field name="domain">[('tipo_repuesto', '!=', False)]</field>
     </record>
 
