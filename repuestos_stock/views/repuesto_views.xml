@@ -69,7 +69,7 @@
     <record id="action_repuestos" model="ir.actions.act_window">
         <field name="name">Repuestos</field>
         <field name="res_model">product.template</field>
-        <field name="view_mode">tree,form"/>
+        <field name="view_mode">tree,form"</field>
         <field name="domain">[('tipo_repuesto', '!=', False)]</field>
     </record>
 
