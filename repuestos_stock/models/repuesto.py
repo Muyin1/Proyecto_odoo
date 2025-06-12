@@ -1,45 +1,38 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-class ProductTemplateAutoparte(models.Model):
+class ProductTemplate(models.Model):
     _inherit = "product.template"
+
+    tipo_repuesto = fields.Selection([
+        ('inyector', 'Inyector'),
+        ('pastillas_freno', 'Pastillas de Freno'),
+        ('sensor', 'Sensor'),
+        ('alternador', 'Alternador'),
+    ], string="Tipo de Repuesto")
     
-    # Código único del repuesto.
-    codigo_repuesto = fields.Char(
-        string="Código",
-        help="Código único del repuesto.",
-        copy=False
-    )
+    # Campos específicos según tipo de repuesto
+    codigo_repuesto = fields.Char(string="Código de Repuesto", required=True, copy=False)
+    marca_id = fields.Many2one('repuestos_stock.marca', string="Marca")
+    codigo_oem = fields.Char(string="Código OEM")
     
-    # Código OEM (opcional).
-    codigo_oem = fields.Char(
-        string="Código OEM",
-        help="Código OEM del repuesto (opcional)."
-    )
+    # Datos solo para inyectores
+    insulating_color = fields.Char(string="Color Aislante")
+    injection_type = fields.Selection([
+        ('monopunto', 'Monopunto'),
+        ('multipunto', 'Multipunto'),
+    ], string="Tipo de Inyección")
     
-    # Relación con la marca. Asegúrate de tener definido el modelo 'repuestos_stock.marca'.
-    marca_id = fields.Many2one(
-        'repuestos_stock.marca',
-        string="Marca"
-    )
+    # Datos solo para pastillas de freno
+    material = fields.Selection([
+        ('ceramico', 'Cerámico'),
+        ('metalico', 'Metálico'),
+        ('organico', 'Orgánico'),
+    ], string="Material de Pastilla")
+    espesor = fields.Float(string="Espesor (mm)")
     
-    # Muchos a muchos con los vehículos compatibles.
-    vehiculo_ids = fields.Many2many(
-        'repuestos_stock.vehiculo',
-        string="Vehículos compatibles"
-    )
-    
-    # Tipo de repuesto, para relacionar piezas equivalentes entre distintas marcas.
-    tipo_id = fields.Many2one(
-        'repuestos_stock.tipo',
-        string="Tipo de repuesto"
-    )
-    
-    # Campo para el código de barras.
-    barcode = fields.Char(
-        string="Código de Barras",
-        help="Código de barras (se puede cargar más adelante)."
-    )
+    # Compatibilidad con vehículos
+    vehiculo_ids = fields.Many2many('repuestos_stock.vehiculo', string="Vehículos Compatibles")
     
     # Restricción SQL para asegurar la unicidad del código del repuesto.
     _sql_constraints = [
@@ -49,13 +42,14 @@ class ProductTemplateAutoparte(models.Model):
     @api.constrains('codigo_repuesto')
     def _check_codigo_repuesto(self):
         for record in self:
-            # Si no se carga el código, se considera un error en la carga inicial.
             if not record.codigo_repuesto:
-                raise ValidationError("El código es obligatorio.")
-            # Verifica duplicados en el mismo modelo.
+                raise ValidationError("El código de repuesto es obligatorio.")
+            
+            # Verifica duplicados en el modelo product.template
             duplicates = self.search([
                 ('codigo_repuesto', '=', record.codigo_repuesto),
                 ('id', '!=', record.id)
             ])
             if duplicates:
                 raise ValidationError(f"El código {record.codigo_repuesto} ya existe en otro producto.")
+
