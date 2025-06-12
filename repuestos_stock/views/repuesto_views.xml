@@ -18,21 +18,22 @@
                     <field name="marca_id"/>
                     <field name="vehiculo_ids" widget="many2many_tags"/>
                 </group>
-                
+
                 <!-- Grupo para inyectores -->
-                <group attrs="{'invisible': [('tipo_repuesto', '!=', 'inyector')]}">
+                <group t-attf-class="d-none if [[tipo_repuesto != 'inyector']]">
                     <field name="insulating_color"/>
                     <field name="injection_type"/>
                 </group>
-                
+
                 <!-- Grupo para pastillas de freno -->
-                <group attrs="{'invisible': [('tipo_repuesto', '!=', 'pastillas_freno')]}">
+                <group t-attf-class="d-none if [[tipo_repuesto != 'pastillas_freno']]">
                     <field name="material"/>
                     <field name="espesor"/>
                 </group>
             </xpath>
         </field>
     </record>
+
 
     <!-- Vista de lista (tree) para repuestos -->
     <record id="view_product_template_tree_repuesto" model="ir.ui.view">
