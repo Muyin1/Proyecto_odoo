@@ -63,6 +63,6 @@
     </record>
 
     <!-- Entrada de menú para acceder a la acción anterior -->
-    <menuitem id="menu_repuestos" name="Repuestos" parent="base.menu_custom" action="action_repuestos"/>
+    <menuitem id="menu_repuesto_root" name="Repuestos" parent="base.menu_custom" action="action_repuestos"/>
 
 </odoo>
