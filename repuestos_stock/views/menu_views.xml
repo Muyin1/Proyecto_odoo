@@ -11,4 +11,9 @@
               parent="menu_repuesto_root"
               action="action_marcas"
               sequence="10"/>
+
+    <menuitem id="menu_inyector" 
+              name="Inyectores" 
+              parent="menu_repuestos" 
+              action="action_inyectores"/>
 </odoo>

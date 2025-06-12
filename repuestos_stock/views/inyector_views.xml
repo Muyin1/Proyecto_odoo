@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_form_inyector" model="ir.ui.view">
+        <field name="name">repuestos_stock.inyector.form</field>
+        <field name="model">repuestos_stock.inyector</field>
+        <field name="arch" type="xml">
+            <form string="Inyector">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="codigo_repuesto"/>
+                        <field name="codigo_oem"/>
+                        <field name="marca_id"/>
+                        <field name="vehiculo_ids" widget="many2many_tags"/>
+                    </group>
+                    <group string="Datos del Inyector">
+                        <field name="insulating_color"/>
+                        <field name="injection_type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_inyector" model="ir.ui.view">
+        <field name="name">repuestos_stock.inyector.tree</field>
+        <field name="model">repuestos_stock.inyector</field>
+        <field name="arch" type="xml">
+            <tree string="Inyectores">
+                <field name="name"/>
+                <field name="codigo_repuesto"/>
+                <field name="marca_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_inyectores" model="ir.actions.act_window">
+        <field name="name">Inyectores</field>
+        <field name="res_model">repuestos_stock.inyector</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea un nuevo inyector.
+            </p>
+        </field>
+    </record>
+</odoo>
