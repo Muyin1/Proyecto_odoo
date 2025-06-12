@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <!-- Vista de formulario para repuestos -->
-    <record id="view_product_template_form_repuesto" model="ir.ui.view">
-        <field name="name">product.template.form.repuesto</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_form_view"/>
-        <field name="arch" type="xml">
-            <xpath expr="//sheet/notebook/page[1]" position="inside">
-                <group>
-                    <field name="tipo_repuesto"/>
-                </group>
+  <record id="view_product_template_form_repuesto" model="ir.ui.view">
+    <field name="name">product.template.form.repuesto</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_form_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet/notebook/page[1]" position="inside">
+        <group>
+          <field name="tipo_repuesto"/>
+        </group>
                 
-                <!-- Grupo de datos generales -->
-                <group>
-                    <field name="codigo_repuesto"/>
-                    <field name="codigo_oem"/>
-                    <field name="marca_id"/>
-                    <field name="vehiculo_ids" widget="many2many_tags"/>
-                </group>
+        <!-- Grupo de datos generales -->
+        <group>
+          <field name="codigo_repuesto"/>
+          <field name="codigo_oem"/>
+          <field name="marca_id"/>
+          <field name="vehiculo_ids" widget="many2many_tags"/>
+        </group>
 
-                <!-- Grupo para inyectores -->
-                <group t-attf-class="d-none if [[tipo_repuesto != 'inyector']]">
-                    <field name="insulating_color"/>
-                    <field name="injection_type"/>
-                </group>
+        <!-- Grupo para inyectores -->
+        <group t-attf-class="d-none if [[tipo_repuesto != 'inyector']]">
+          <field name="insulating_color"/>
+          <field name="injection_type"/>
+        </group>
 
-                <!-- Grupo para pastillas de freno -->
-                <group t-attf-class="d-none if [[tipo_repuesto != 'pastillas_freno']]">
-                    <field name="material"/>
-                    <field name="espesor"/>
-                </group>
-            </xpath>
-        </field>
-    </record>
+        <!-- Grupo para pastillas de freno -->
+        <group t-attf-class="d-none if [[tipo_repuesto != 'pastillas_freno']]">
+          <field name="material"/>
+          <field name="espesor"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
 
 
     <!-- Vista de lista (tree) para repuestos -->
