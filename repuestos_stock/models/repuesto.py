@@ -12,8 +12,8 @@ class ProductTemplate(models.Model):
     ], string="Tipo de Repuesto")
     
     # Campos específicos según tipo de repuesto
-    codigo_repuesto = fields.Char(string="Código de Repuesto", required=True, copy=False)
-    marca_id = fields.Many2one('repuestos_stock.marca', string="Marca")
+    codigo_repuesto = fields.Char(string="Código de Repuesto",copy=False)
+    marca_id = fields.Many2one('repuestos_stock.marca', string="Marca")     
     codigo_oem = fields.Char(string="Código OEM")
     
     # Datos solo para inyectores
