@@ -1,4 +1,3 @@
-from . import tipo
 from . import marca
-from . import repuesto
+from . import inyector
 from . import vehiculo
