@@ -8,7 +8,7 @@ class Inyector(models.Model):
     #campos especificos del inyector
     insulating_color = fields.Char(string = "Color Aislante")
     injection_type = fields.Selection([
-        ('monopunto','Monopunto')
+        ('monopunto','Monopunto'),
         ('multipunto','Multipunto'),
     ], string="tipo de Inyeccion")
 
