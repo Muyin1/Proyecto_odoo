@@ -10,7 +10,7 @@
         'views/repuesto_menu_views.xml',
         'security/ir.model.access.csv',
         'views/vehiculo_views.xml',
-        'views/repuesto_views.xml',
+        'views/inyector_views.xml',
     ],
     'installable': True,
     'application': True,
