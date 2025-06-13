@@ -3,7 +3,10 @@ from odoo import models, fields
 class Inyector(models.Model):
     _name = 'repuestos_stock.inyector'
     _description = "inyector"
-    _inherit = "product.template"
+    _inherit = {'product.template' : 'product_tmpl_id'}
+
+    #Este campo enlaza el registro del inyector con product.template
+    product_tmpl_id = fields.Many2one('product.template', required=True, ondelete="cascade")
 
     #campos especificos del inyector
     insulating_color = fields.Char(string = "Color Aislante")
