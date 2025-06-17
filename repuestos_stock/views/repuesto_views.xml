@@ -20,7 +20,7 @@
 
             <!-- Pestaña condicional para Inyector -->
             <xpath expr="//notebook" position="inside">
-                <page string="Inyector" attrs="{'invisible': [('tipo_repuesto', '!=', 'inyector')]}">
+                <page string="Inyector">
                     <field name="inyector_id" context="{'form_view_ref': 'repuestos_stock.view_repuesto_inyector_form'}"/>
                 </page>
             </xpath>
@@ -69,7 +69,6 @@
     <!-- Menú -->
     <menuitem id="menu_repuestos"
               name="Repuestos"
-              parent="menu_repuesto_root"
               action="action_repuestos"
               sequence="10"/>
 
