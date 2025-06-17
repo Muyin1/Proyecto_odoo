@@ -8,10 +8,4 @@ class MarcaRepuesto(models.Model):
     descripcion = fields.Text(string='Descripcion')
     activo = fields.Boolean(string='Activo', default=True)
 
-    inyector_ids = fields.One2many(
-        'repuestos_stock.inyector',  # se referencia al modelo base donde se han extendido los repuestos
-        'marca_id', 
-        string='Inyector', 
-        domain=[('codigo_repuesto', '!=', False)]
-    )
-    
+    producto_ids = fields.One2many('product.template', 'marca_id', string='Productos')

@@ -1,4 +1,8 @@
 from odoo import models, fields
+import logging
+_logger = logging.getLogger(__name__)
+_logger.info("Cargando extensión de product.template en repuesto.py")
+
 
 class RepuestoInyector(models.Model):
     _name = 'repuesto.inyector'
@@ -10,5 +14,5 @@ class RepuestoInyector(models.Model):
         ('monopunto', 'Monopunto'),
         ('multipunto', 'Multipunto'),
     ], string="Tipo de Inyección")
-    inyector_id = fields.One2many('repuesto.inyector', 'product_id', string="Ficha de Inyector")
+    marca_id = fields.Many2one('repuestos_stock.marca', string='Marca')
 

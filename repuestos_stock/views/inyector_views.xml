@@ -8,6 +8,7 @@
                 <group>
                     <field name="insulating_color"/>
                     <field name="injection_type"/>
+                    <field name="marca_id"/>
                 </group>
             </form>
         </field>
