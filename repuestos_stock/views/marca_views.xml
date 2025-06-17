@@ -33,4 +33,11 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <menuitem id="menu_marcas"
+          name="Marcas"
+          parent="menu_repuesto_root"
+          action="action_marcas"
+          sequence="20"/>
+
+
 </odoo>

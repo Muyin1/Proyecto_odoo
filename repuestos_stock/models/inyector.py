@@ -1,12 +1,14 @@
 from odoo import models, fields
 
-class Inyector(models.Model):
-    _name = 'repuestos_stock.inyector'
-    _description = 'Inyector'
-    _inherit = 'repuestos_stock.repuesto_base'
+class RepuestoInyector(models.Model):
+    _name = 'repuesto.inyector'
+    _description = 'Datos del Inyector'
 
+    product_id = fields.Many2one('product.template', string='Producto', ondelete='cascade', required=True)
     insulating_color = fields.Char(string="Color Aislante")
     injection_type = fields.Selection([
         ('monopunto', 'Monopunto'),
         ('multipunto', 'Multipunto'),
     ], string="Tipo de Inyección")
+    inyector_id = fields.One2many('repuesto.inyector', 'product_id', string="Ficha de Inyector")
+

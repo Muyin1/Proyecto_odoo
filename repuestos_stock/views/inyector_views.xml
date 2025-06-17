@@ -1,56 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- Vista árbol (lista) de Inyectores -->
-    <record id="view_repuesto_inyector_tree" model="ir.ui.view">
-        <field name="name">repuestos_stock.inyector.tree</field>
-        <field name="model">repuestos_stock.inyector</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="name"/>
-                <field name="codigo_repuesto"/>
-                <field name="marca_id"/>
-                <field name="injection_type"/>
-                <field name="qty_available"/>
-            </tree>
-        </field>
-    </record>
-
-    <!-- Vista formulario de Inyectores -->
     <record id="view_repuesto_inyector_form" model="ir.ui.view">
-        <field name="name">repuestos_stock.inyector.form</field>
-        <field name="model">repuestos_stock.inyector</field>
+        <field name="name">repuesto.inyector.form</field>
+        <field name="model">repuesto.inyector</field>
         <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="codigo_repuesto"/>
-                        <field name="codigo_oem"/>
-                        <field name="marca_id"/>
-                        <field name="vehiculo_ids"/>
-                        <field name="injection_type"/>
-                        <field name="insulating_color"/>
-                        <field name="list_price"/>
-                        <field name="qty_available"/>
-                    </group>
-                </sheet>
+            <form string="Ficha Técnica de Inyector">
+                <group>
+                    <field name="insulating_color"/>
+                    <field name="injection_type"/>
+                </group>
             </form>
         </field>
     </record>
-
-    <!-- Acción para acceder a los Inyectores -->
-    <record id="action_repuestos_inyectores" model="ir.actions.act_window">
-        <field name="name">Inyectores</field>
-        <field name="res_model">repuestos_stock.inyector</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Crea el primer inyector personalizado
-            </p>
-        </field>
-    </record>
-
-    <!-- Menú para los Inyectores -->
-    <menuitem id="menu_repuestos_root" name="Repuestos" sequence="10"/>
-    <menuitem id="menu_inyectores" name="Inyectores" parent="menu_repuestos_root" action="action_repuestos_inyectores" sequence="1"/>
 </odoo>

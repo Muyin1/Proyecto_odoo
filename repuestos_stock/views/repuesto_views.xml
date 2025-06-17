@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vista de formulario para producto con ficha dinámica -->
+    <record id="view_product_template_form_repuesto" model="ir.ui.view">
+        <field name="name">product.template.form.repuesto</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group>
+                    <field name="tipo_repuesto"/>
+                </group>
+                <group>
+                    <field name="codigo_repuesto"/>
+                    <field name="codigo_oem"/>
+                    <field name="marca_id"/>
+                    <field name="vehiculo_ids" widget="many2many_tags"/>
+                </group>
+            </xpath>
+
+            <!-- Pestaña condicional para Inyector -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Inyector" attrs="{'invisible': [('tipo_repuesto', '!=', 'inyector')]}">
+                    <field name="inyector_id" context="{'form_view_ref': 'repuestos_stock.view_repuesto_inyector_form'}"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Vista de lista (tree) -->
+    <record id="view_product_template_tree_repuesto" model="ir.ui.view">
+        <field name="name">product.template.tree.repuesto</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="tipo_repuesto"/>
+                <field name="codigo_repuesto"/>
+                <field name="codigo_oem"/>
+                <field name="marca_id"/>
+                <field name="vehiculo_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Vista de búsqueda (search) -->
+    <record id="view_product_template_search_repuesto" model="ir.ui.view">
+        <field name="name">product.template.search.repuesto</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="tipo_repuesto"/>
+                <field name="codigo_repuesto"/>
+                <field name="codigo_oem"/>
+                <field name="vehiculo_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Acción para abrir repuestos -->
+    <record id="action_repuestos" model="ir.actions.act_window">
+        <field name="name">Repuestos</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('tipo_repuesto', '!=', False)]</field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_repuestos"
+              name="Repuestos"
+              parent="menu_repuesto_root"
+              action="action_repuestos"
+              sequence="10"/>
+
+    <menuitem id="menu_repuesto_root" name="Repuestos" sequence="10"/>
+</odoo>
