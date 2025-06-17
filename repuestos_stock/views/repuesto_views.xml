@@ -13,7 +13,7 @@
                 <group>
                     <field name="codigo_repuesto"/>
                     <field name="codigo_oem"/>
-                    <field name="marca_id"/>
+                    <field name="marca"/>
                     <field name="vehiculo_ids" widget="many2many_tags"/>
                 </group>
             </xpath>
@@ -37,7 +37,7 @@
                 <field name="tipo_repuesto"/>
                 <field name="codigo_repuesto"/>
                 <field name="codigo_oem"/>
-                <field name="marca_id"/>
+                <field name="marca"/>
                 <field name="vehiculo_ids"/>
             </xpath>
         </field>

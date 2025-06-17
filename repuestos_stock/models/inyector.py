@@ -14,5 +14,4 @@ class RepuestoInyector(models.Model):
         ('monopunto', 'Monopunto'),
         ('multipunto', 'Multipunto'),
     ], string="Tipo de Inyección")
-    marca_id = fields.Many2one('repuestos_stock.marca', string='Marca')
 
