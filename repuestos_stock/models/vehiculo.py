@@ -9,7 +9,7 @@ class Vehiculo(models.Model):
     version = fields.Char(string='Versión')  # Ej: Corolla Classic, Land Cruiser Prado
     motor = fields.Char(string='Motor')  # Ej: 1.4, 2.8, etc.
     codigo_motor = fields.Char(string='Código de Motor')  # Ej: 1KD-FTV, Z14XEP
-    anio = fields.Char(string='Año', required=True)  # Año de salida
+    anios = fields.Char(string='Año', required=True)  # Año de salida
 
     name = fields.Char(string='Nombre completo', compute='_compute_name', store=True)
 

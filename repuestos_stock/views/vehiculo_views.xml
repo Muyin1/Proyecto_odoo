@@ -12,7 +12,7 @@
                         <field name="version"/>
                         <field name="motor"/>
                         <field name="codigo_motor"/>
-                        <field name="anio"/>
+                        <field name="anios"/>
                     </group>
                 </sheet>
             </form>
@@ -28,7 +28,7 @@
                 <field name="modelo"/>
                 <field name="version"/>
                 <field name="motor" />
-                <field name="anio"/>
+                <field name="anios"/>
             </tree>
         </field>
     </record>
@@ -39,6 +39,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_vehiculos" name="Vehiculos" action="action_vehiculos" sequence="30"/>
+    <menuitem id="menu_vehiculos" 
+              name="Vehiculos" 
+              action="action_vehiculos" 
+              sequence="30"/>
 
+    <menuitem id="menu_repuesto_root" 
+              name="Vehiculos" 
+              sequence="10"/>
 </odoo>
