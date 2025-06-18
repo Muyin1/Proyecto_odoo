@@ -19,8 +19,8 @@ class Vehiculo(models.Model):
             partes = [record.marca, record.modelo]
             if record.version:
                 partes.append(record.version)
-            if record.anio:
-                partes.append(f"({record.anio})")
+            if record.anios:
+                partes.append(f"({record.anios})")
             if record.motor:
                 partes.append(f"({record.motor})")
             if record.codigo_motor:
