@@ -10,6 +10,7 @@
         'views/repuesto_views.xml',*
         'views/vehiculo_views.xml',
         'views/inyector_views.xml',
+        'templates/repuesto_portal_templates.xml',
     ],
     'installable': True,
     'application': True,

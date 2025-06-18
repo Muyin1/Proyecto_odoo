@@ -1,0 +1,39 @@
+<odoo>
+  <template id="portal_lista_repuestos" name="Lista de Repuestos">
+    <t t-call="website.layout">
+      <div class="container my-5">
+        <h1>Repuestos disponibles</h1>
+        <div class="mb-3">
+          <strong>Filtrar por tipo:</strong>
+          <t t-foreach="tipos" t-as="t">
+            <a t-attf-href="/mis-repuestos?tipo=#{t}"
+               t-att-class="'btn btn-sm me-1 ' + ('btn-primary' if tipo_seleccionado == t else 'btn-outline-secondary')">
+              <t t-esc="t.capitalize()"/>
+            </a>
+          </t>
+        </div>
+
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>OEM</th>
+              <th>Tipo</th>
+              <th>Marca</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="productos" t-as="producto">
+              <tr>
+                <td><t t-esc="producto.codigo_repuesto"/></td>
+                <td><t t-esc="producto.codigo_oem"/></td>
+                <td><t t-esc="producto.tipo_repuesto"/></td>
+                <td><t t-esc="producto.marca"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+      </div>
+    </t>
+  </template>
+</odoo>
