@@ -39,12 +39,14 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_vehiculos" 
-              name="Vehiculos" 
-              action="action_vehiculos" 
-              sequence="30"/>
-
     <menuitem id="menu_repuesto_root" 
-              name="Vehiculos" 
-              sequence="10"/>
+          name="Repuestos" 
+          sequence="10"/>
+
+    <menuitem id="menu_vehiculos" 
+          name="Vehículos" 
+          parent="menu_repuesto_root"
+          action="action_vehiculos" 
+          sequence="30"/>
+
 </odoo>

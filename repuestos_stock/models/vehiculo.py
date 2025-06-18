@@ -13,7 +13,7 @@ class Vehiculo(models.Model):
 
     name = fields.Char(string='Nombre completo', compute='_compute_name', store=True)
 
-    @api.depends('marca', 'modelo', 'version', 'anio', 'motor', 'codigo_motor')
+    @api.depends('marca', 'modelo', 'version', 'anios', 'motor', 'codigo_motor')
     def _compute_name(self):
         for record in self:
             partes = [record.marca, record.modelo]
