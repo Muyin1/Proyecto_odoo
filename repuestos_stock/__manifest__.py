@@ -7,7 +7,7 @@
     'description': 'Gestión de repuestos para taller',
     'data': [
         'security/ir.model.access.csv',
-        'views/repuesto_views.xml',
+        'views/repuesto_views.xml',*
         'views/vehiculo_views.xml',
         'views/inyector_views.xml',
     ],
