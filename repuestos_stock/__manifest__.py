@@ -1,17 +1,23 @@
 {
     'name': 'Repuestos Stock',
     'version': '1.0',
-    'depends': ['base', 'product', 'stock'],  
-    'author': 'Burnet Mauricio Nicolas',
     'category': 'Inventory',
-    'description': 'Gestión de repuestos para taller',
+    'summary': 'Gestión personalizada de repuestos para taller y ventas',
+    'author': 'Nicolás',
+    'depends': ['product', 'website'],
+    'application': True,
+    'installable': True,
+    'license': 'LGPL-3',
     'data': [
         'security/ir.model.access.csv',
         'views/repuesto_views.xml',
         'views/vehiculo_views.xml',
-        'views/inyector_views.xml',
-        'templates/repuesto_portal_templates.xml',
+        'templates/portal_repuesto_templates.xml',
+        'templates/portal_inyectores.xml',
     ],
-    'installable': True,
-    'application': True,
+    'assets': {
+        'web.assets_backend': [
+            'repuestos_stock/static/src/js/repuesto_form.js',
+        ],
+    },
 }
