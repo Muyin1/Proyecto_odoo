@@ -1,26 +1,41 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-class ProductTemplate(models.Model):
+class Repuesto(models.Model):
     _inherit = "product.template"
 
-    # Campos ya existentes
+    # Clasificación del repuesto
     tipo_repuesto = fields.Selection([
         ('inyector', 'Inyector'),
         ('pastillas_freno', 'Pastillas de Freno'),
         ('sensor', 'Sensor'),
         ('alternador', 'Alternador'),
+        # Podés seguir agregando tipos acá
     ], string="Tipo de Repuesto", tracking=True)
-    codigo_repuesto = fields.Char(string="Código de Repuesto", required=True, copy=False)
-    codigo_oem = fields.Char(string="Código OEM")
-    vehiculo_ids = fields.Many2many('repuestos_stock.vehiculo', string="Vehículos Compatibles")
-    inyector_id = fields.One2many('repuesto.inyector', 'product_id', string="Ficha de Inyector")
 
-    # Nuevo campo simple para marca
+    # Identificadores
+    codigo_repuesto = fields.Char(string="Código de Repuesto", required=True, copy=False)
+    codigo_oem = fields.Char(string="Código OEM", tracking=True)
+
+    # Información general
     marca = fields.Char(string='Marca')
+    vehiculo_ids = fields.Many2many(
+        'repuestos_stock.vehiculo',
+        string="Vehículos Compatibles"
+    )
+
+    # Atributos específicos — para inyectores
+    insulating_color = fields.Char(string="Color del Aislante")
+    injection_type = fields.Selection([
+        ('monopunto', 'Monopunto'),
+        ('multipunto', 'Multipunto'),
+    ], string="Tipo de Inyección")
+    number_pines = fields.Char(string="Cantidad de Pines")
+
+    # Podés seguir agregando campos para otros tipos acá (sensor, alternador, etc.)
 
     _sql_constraints = [
-        ('unique_codigo_repuesto', 'UNIQUE(codigo_repuesto)', "El código del repuesto debe ser único.")
+        ('unique_codigo_repuesto', 'unique(codigo_repuesto)', "El código del repuesto debe ser único.")
     ]
 
     @api.constrains('codigo_repuesto')

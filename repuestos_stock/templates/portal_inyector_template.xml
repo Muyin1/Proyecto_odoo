@@ -1,0 +1,32 @@
+<odoo>
+  <template id="repuestos_stock.portal_lista_inyectores" name="Inyectores">
+    <t t-call="website.layout">
+      <div class="container mt-4">
+        <h2 class="mb-3">Listado de Inyectores</h2>
+
+        <table class="table table-bordered table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>Código</th>
+              <th>Marca</th>
+              <th>Color Aislante</th>
+              <th>Tipo Inyección</th>
+              <th>Pines</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="inyectores" t-as="iny">
+              <tr>
+                <td><t t-esc="iny['codigo']"/></td>
+                <td><t t-esc="iny['marca'] or '-'"/></td>
+                <td><t t-esc="iny['color_aislante'] or '-'"/></td>
+                <td><t t-esc="iny['inyeccion'] or '-'"/></td>
+                <td><t t-esc="iny['pines'] or '-'"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+      </div>
+    </t>
+  </template>
+</odoo>
