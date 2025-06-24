@@ -7,11 +7,11 @@
     'depends' : ['base','contacts'],
     'data' : [
         'security/ir.model.access.csv',
-        'views/menuitems.xml',
+        'views/menuitem.xml',
         'views/repuesto_views.xml',
         'views/vehiculo_views.xml',
         'templates/portal_repuesto_templates.xml',
-        'templates/portal_inyectores.xml',
+        'templates/portal_inyectores_template.xml',
         ],
     'installable' : True,
     'applications' : True,
