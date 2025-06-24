@@ -1,0 +1,36 @@
+
+<odoo>
+  <!-- Menú raíz -->
+  <menuitem id="menu_repuestos_root" name="Repuestos" sequence="10" />
+
+  <!-- Submenú: Catálogo de Repuestos -->
+  <menuitem id="menu_repuestos_catalogo" name="Catálogo" parent="menu_repuestos_root" sequence="10"/>
+
+  <!-- Acción: Lista de Productos -->
+  <record id="action_product_template_repuestos" model="ir.actions.act_window">
+    <field name="name">Todos los Repuestos</field>
+    <field name="res_model">product.template</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('tipo_repuesto','!=',False)]</field>
+    <field name="context">{'default_detailed_type': 'product'}</field>
+  </record>
+
+  <menuitem id="menu_repuestos_productos"
+            name="Productos"
+            parent="menu_repuestos_catalogo"
+            action="action_product_template_repuestos"
+            sequence="10"/>
+
+  <!-- Acción/Vista: Vehículos -->
+  <record id="action_vehiculo" model="ir.actions.act_window">
+    <field name="name">Vehículos</field>
+    <field name="res_model">repuestos_stock.vehiculo</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_repuestos_vehiculos"
+            name="Vehículos Compatibles"
+            parent="menu_repuestos_catalogo"
+            action="action_vehiculo"
+            sequence="20"/>
+</odoo>
