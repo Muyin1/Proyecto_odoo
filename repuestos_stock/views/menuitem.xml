@@ -1,24 +1,21 @@
 
 <odoo>
-  <!-- Menú raíz -->
-  <menuitem id="menu_repuestos_root" name="Repuestos" sequence="10" />
+ <!-- Menú raíz principal que agrupa toda la sección de repuestos -->
+  <menuitem id="menu_repuestos_root" name="Repuestos" sequence="10"/>
 
-  <!-- Submenú: Catálogo de Repuestos -->
-  <menuitem id="menu_repuestos_catalogo" name="Catálogo" parent="menu_repuestos_root" sequence="10"/>
+  <!-- Submenú interno: puede servir para agrupar cosas como catálogo, configuración, etc. -->
+  <menuitem id="menu_repuestos_catalogo"
+            name="Catálogo"
+            parent="menu_repuestos_root"
+            sequence="10"/>
 
-  <!-- Acción: Lista de Productos -->
-  <record id="action_product_template_repuestos" model="ir.actions.act_window">
-    <field name="name">Todos los Repuestos</field>
-    <field name="res_model">product.template</field>
-    <field name="view_mode">tree,form</field>
-    <field name="domain">[('tipo_repuesto','!=',False)]</field>
-    <field name="context">{'default_detailed_type': 'product'}</field>
-  </record>
-
+  <!-- Entrada al listado de productos tipo repuesto
+       Usa la acción definida en `action_product_template_repuestos`
+       que muestra solo productos con `tipo_repuesto` definido -->
   <menuitem id="menu_repuestos_productos"
             name="Productos"
             parent="menu_repuestos_catalogo"
-            action="action_product_template_repuestos"
+            action="repuestos_stock.action_product_template_repuestos"
             sequence="10"/>
 
   <!-- Acción/Vista: Vehículos -->
