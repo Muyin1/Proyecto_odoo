@@ -13,7 +13,7 @@
         'views/repuesto_views.xml',
         'views/vehiculo_views.xml',
         'templates/portal_repuesto_templates.xml',
-        'templates/portal_inyectores.xml',
+        'templates/portal_inyector_template.xml',
     ],
     'assets': {
         'web.assets_backend': [

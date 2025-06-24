@@ -14,7 +14,7 @@ class Repuesto(models.Model):
     ], string="Tipo de Repuesto", tracking=True)
 
     # Identificadores
-    codigo_repuesto = fields.Char(string="Código de Repuesto", required=True, copy=False)
+    codigo_repuesto = fields.Char(string="Código de Repuesto", required=True, copy=False, default="Sin Codigo")
     codigo_oem = fields.Char(string="Código OEM", tracking=True)
 
     # Información general
