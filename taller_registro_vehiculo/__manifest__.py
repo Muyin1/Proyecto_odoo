@@ -6,10 +6,12 @@
     'author' : 'Burnet Mauricio Nicolas',
     'depends' : ['base','contacts'],
     'data' : [
-        'views/taller_vehiculo_views.xml', 
-        'views/taller_menu.xml',
         'security/ir.model.access.csv',
-        'views/taller_visita_views.xml'
+        'views/menuitems.xml',
+        'views/repuesto_views.xml',
+        'views/vehiculo_views.xml',
+        'templates/portal_repuesto_templates.xml',
+        'templates/portal_inyectores.xml',
         ],
     'installable' : True,
     'applications' : True,
