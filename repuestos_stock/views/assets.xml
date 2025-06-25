@@ -1,0 +1,10 @@
+<odoo>
+  <template id="inject_repuestos_assets" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+      <!-- JS de comportamiento dinámico -->
+      <script type="text/javascript" src="/repuestos_stock/static/src/js/repuesto_form.js"/>
+      <!-- CSS de estilos -->
+      <link rel="stylesheet" href="/repuestos_stock/static/src/css/repuesto_form.css"/>
+    </xpath>
+  </template>
+</odoo>
