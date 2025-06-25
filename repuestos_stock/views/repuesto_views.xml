@@ -1,12 +1,14 @@
 <odoo>
-  <!-- Vista Formulario Exclusiva -->
-  <record id="view_form_repuesto_custom" model="ir.ui.view">
-    <field name="name">Repuesto Personalizado</field>
+
+  <!-- Vista de carga personalizada de repuestos -->
+  <record id="view_form_repuesto_carga" model="ir.ui.view">
+    <field name="name">Carga Repuestos Personalizada</field>
     <field name="model">product.template</field>
     <field name="arch" type="xml">
       <form>
         <sheet>
-          <group string="Ficha Técnica del Repuesto">
+          <group string="Datos Generales">
+            <field name="name" string="Nombre del Repuesto"/>
             <field name="tipo_repuesto"/>
             <field name="codigo_repuesto"/>
             <field name="codigo_oem"/>
@@ -24,15 +26,31 @@
     </field>
   </record>
 
-  <!-- Acción que usa esta vista -->
+  <!-- 📋 Vista de lista compacta para navegación -->
+  <record id="view_tree_repuestos_personalizada" model="ir.ui.view">
+    <field name="name">Lista Repuestos</field>
+    <field name="model">product.template</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="codigo_repuesto"/>
+        <field name="tipo_repuesto"/>
+        <field name="marca"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- 🧭 Acción que une ambas vistas bajo el menú "Productos" -->
   <record id="action_product_template_repuestos" model="ir.actions.act_window">
     <field name="name">Catálogo de Repuestos</field>
     <field name="res_model">product.template</field>
     <field name="view_mode">tree,form</field>
-    <field name="domain">[('tipo_repuesto','!=',False)]</field>
-    <field name="view_id" ref="view_form_repuesto_custom"/>
+    <field name="view_ids" eval="[(5, 0, 0),
+      (0, 0, {'view_mode': 'tree', 'view_id': ref('view_tree_repuestos_personalizada')}),
+      (0, 0, {'view_mode': 'form', 'view_id': ref('view_form_repuesto_carga')})
+    ]"/>
+    <field name="domain">[('tipo_repuesto', '!=', False)]</field>
     <field name="context">{'default_detailed_type': 'product'}</field>
   </record>
+
 </odoo>
-
-

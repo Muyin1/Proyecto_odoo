@@ -23,7 +23,7 @@
   <menuitem id="menu_repuestos_vehiculos"
             name="Vehículos"
             parent="menu_repuestos_catalogo"
-            action="repuestos_stock.action_vehiculo"
+            action="repuestos_stock.action_vehiculos"
             sequence="20"/>
 
 </odoo>

@@ -12,6 +12,7 @@
         'security/ir.model.access.csv',
         'views/repuesto_views.xml',
         'views/vehiculo_views.xml',
+        'views/menuitem.xml',
         'templates/portal_repuesto_templates.xml',
         'templates/portal_inyector_template.xml',
     ],
