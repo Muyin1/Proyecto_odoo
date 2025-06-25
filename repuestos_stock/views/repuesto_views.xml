@@ -3,10 +3,9 @@
    <!-- Vista de Carga -->
   <record id="view_form_repuesto_carga" model="ir.ui.view">
     <field name="name">Repuestos - Alta</field>
-    <field name="js_class">repuesto_form_js</field>
     <field name="model">product.template</field>
     <field name="arch" type="xml">
-      <form>
+      <form string="Alta de Repuesto" data-js_class="repuesto_form_js">
         <sheet>
           <group>
             <field name="name" string="Nombre del Repuesto" required="1"/>
