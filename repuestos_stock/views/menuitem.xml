@@ -1,29 +1,36 @@
 <odoo>
 
-  <!-- Menú raíz para todo lo relacionado con repuestos -->
+  <!-- Menú raíz -->
   <menuitem id="menu_repuestos_root"
             name="Repuestos"
             sequence="10"/>
 
-  <!-- Submenú "Catálogo" agrupador visual -->
+  <!-- Submenú para agrupar acciones -->
   <menuitem id="menu_repuestos_catalogo"
             name="Catálogo"
             parent="menu_repuestos_root"
             sequence="10"/>
 
-  <!-- Acción para ver solo productos con tipo_repuesto definido
-       Muestra tu formulario personalizado -->
-  <menuitem id="menu_repuestos_productos"
-            name="Productos"
+  <!-- Acción: Catálogo de repuestos (lista + vista simplificada) -->
+  <menuitem id="menu_repuestos_catalogo_productos"
+            name="Listado"
             parent="menu_repuestos_catalogo"
-            action="repuestos_stock.action_product_template_repuestos"
+            action="repuestos_stock.action_product_template_repuestos_catalogo"
             sequence="10"/>
 
-  <!-- Acción para ver vehículos compatibles (si tenés el modelo repuestos_stock.vehiculo) -->
+  <!-- Acción: Alta de repuestos (formulario completo de carga) -->
+  <menuitem id="menu_repuestos_alta"
+            name="Alta de Repuestos"
+            parent="menu_repuestos_catalogo"
+            action="repuestos_stock.action_product_template_repuestos_alta"
+            sequence="20"/>
+
+  <!-- Acción: Vehículos compatibles (ya existente) -->
   <menuitem id="menu_repuestos_vehiculos"
             name="Vehículos"
             parent="menu_repuestos_catalogo"
             action="repuestos_stock.action_vehiculos"
-            sequence="20"/>
+            sequence="30"/>
 
 </odoo>
+

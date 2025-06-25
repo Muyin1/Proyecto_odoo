@@ -57,17 +57,29 @@
     </field>
   </record>
 
-  <!-- 🧭 Acción que une ambas vistas bajo el menú "Productos" -->
-  <record id="action_product_template_repuestos" model="ir.actions.act_window">
+  <!--Vista Para la Alta de Productos-->
+
+  <record id="action_product_template_repuestos_alta" model="ir.actions.act_window">
+    <field name="name">Alta de Repuestos</field>
+    <field name="res_model">product.template</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="view_form_repuesto_carga"/>
+    <field name="context">{'default_detailed_type': 'product'}</field>
+  </record>
+
+ <!--Vista para el catalogo en general-->
+  <record id="action_product_template_repuestos_catalogo" model="ir.actions.act_window">
     <field name="name">Catálogo de Repuestos</field>
     <field name="res_model">product.template</field>
     <field name="view_mode">tree,form</field>
     <field name="view_ids" eval="[(5, 0, 0),
       (0, 0, {'view_mode': 'tree', 'view_id': ref('view_tree_repuestos_personalizada')}),
-      (0, 0, {'view_mode': 'form', 'view_id': ref('view_form_repuesto_carga')})
+      (0, 0, {'view_mode': 'form', 'view_id': ref('view_form_repuesto_catalogo')})
     ]"/>
     <field name="domain">[('tipo_repuesto', '!=', False)]</field>
     <field name="context">{'default_detailed_type': 'product'}</field>
   </record>
+
+
 
 </odoo>
