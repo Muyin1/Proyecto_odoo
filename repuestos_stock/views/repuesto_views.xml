@@ -3,6 +3,7 @@
    <!-- Vista de Carga -->
   <record id="view_form_repuesto_carga" model="ir.ui.view">
     <field name="name">Repuestos - Alta</field>
+    <field name="js_class">repuesto_form_js</field>
     <field name="model">product.template</field>
     <field name="arch" type="xml">
       <form>
@@ -13,10 +14,11 @@
             <field name="codigo_repuesto"/>
             <field name="codigo_oem"/>
             <field name="marca"/>
+            <field name="list_price" string="Precio de Venta"/>
             <field name="vehiculo_ids" widget="many2many_tags"/>
           </group>
 
-          <group string="Solo Inyectores" class="inyector-section o_hidden">
+          <group string="Solo Inyectores" class="grupo-inyector o_hidden">
             <field name="insulating_color"/>
             <field name="injection_type"/>
             <field name="number_pines"/>

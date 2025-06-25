@@ -1,0 +1,19 @@
+/* Oculta secciones hasta que JS las active */
+.o_hidden {
+    display: none !important;
+}
+
+/* Estilo para secciones visibles */
+.visible-section {
+    background-color: #f5faff;
+    border-left: 3px solid #1976d2;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+/* Tipografía mejorada para campos importantes */
+.o_form_label {
+    font-weight: 600;
+    color: #333;
+}

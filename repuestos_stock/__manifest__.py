@@ -19,6 +19,7 @@
     'assets': {
         'web.assets_backend': [
             'repuestos_stock/static/src/js/repuesto_form.js',
+            'repuestos_stock/static/src/css/repuesto_form.css',
         ],
     },
 }

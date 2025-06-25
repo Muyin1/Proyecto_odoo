@@ -5,7 +5,8 @@
     'category' : 'Taller',
     'author' : 'Burnet Mauricio Nicolas',
     'depends' : ['base','contacts', 'stock', 'sale', 'website'],
-    'data' : [
+    'data' : 
+        [
         'security/ir.model.access.csv',
         'views/menuitem.xml',
         'views/repuesto_views.xml',
@@ -13,6 +14,14 @@
         'templates/portal_repuesto_templates.xml',
         'templates/portal_inyectores_template.xml',
         ],
+    'assets': 
+    {
+        'web.assets_backend': 
+        [
+            'repuestos_stock/static/src/js/repuesto_form.js',
+        ],
+    },
+
     'installable' : True,
     'applications' : True,
 }

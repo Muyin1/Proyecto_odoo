@@ -13,6 +13,9 @@ class Repuesto(models.Model):
         # Podés seguir agregando tipos acá
     ], string="Tipo de Repuesto", tracking=True)
 
+    #Punto de Venta siempre en True
+    available_in_pos = fields.Boolean(default=True)
+
     # Identificadores
     codigo_repuesto = fields.Char(string="Código de Repuesto", required=True, copy=False, default="Sin Codigo")
     codigo_oem = fields.Char(string="Código OEM", tracking=True)
