@@ -1,4 +1,8 @@
-odoo.define('repuestos_stock.repuesto_form', function (require) {
+odoo.define('repuestos_stock.repuesto_form', [
+    'web.FormController',
+    'web.FormView',
+    'web.view_registry',
+], function (require) {
     'use strict';
 
     const FormController = require('web.FormController');
