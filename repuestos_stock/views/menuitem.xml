@@ -15,14 +15,14 @@
   <menuitem id="menu_repuestos_catalogo_productos"
             name="Listado"
             parent="menu_repuestos_catalogo"
-            action="repuestos_stock.action_product_template_repuestos_catalogo"
+            action="repuestos_stock.action_repuesto_catalogo"
             sequence="10"/>
 
   <!-- Acción: Alta de repuestos (formulario completo de carga) -->
   <menuitem id="menu_repuestos_alta"
             name="Alta de Repuestos"
             parent="menu_repuestos_catalogo"
-            action="repuestos_stock.action_product_template_repuestos_alta"
+            action="repuestos_stock.action_repuesto_alta"
             sequence="20"/>
 
   <!-- Acción: Vehículos compatibles (ya existente) -->
