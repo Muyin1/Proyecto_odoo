@@ -13,7 +13,6 @@
         'website',        # si seguís usando plantillas portal
     ],
     'data': [
-        'views/assets.xml',         # para fallback si el manifest falla
         'security/ir.model.access.csv',
         'views/menuitem.xml',
         'views/repuesto_views.xml',
