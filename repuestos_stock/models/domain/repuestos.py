@@ -27,13 +27,9 @@ class Repuesto(models.Model):
         string="Vehículos Compatibles"
     )
 
-    # Atributos específicos — para inyectores
-    insulating_color = fields.Char(string="Color del Aislante")
-    injection_type = fields.Selection([
-        ('monopunto', 'Monopunto'),
-        ('multipunto', 'Multipunto'),
-    ], string="Tipo de Inyección")
-    number_pines = fields.Char(string="Cantidad de Pines")
+    #Conector con la ficha tecnica de cada repuesto
+    ficha_tecnica_ids = fields.One2many('ficha.tecnica', 'producto_id', string='Ficha Técnica')
+
 
     # Podés seguir agregando campos para otros tipos acá (sensor, alternador, etc.)
 
@@ -52,3 +48,12 @@ class Repuesto(models.Model):
             ])
             if duplicates:
                 raise ValidationError(f"El código {record.codigo_repuesto} ya existe en otro producto.")
+
+
+class FichaTecnica(models.Model):
+    _name = 'ficha.tecnica'
+    _description = 'Ficha Técnica del Repuesto'
+
+    producto_id = fields.Many2one('product.template', string='Repuesto')
+    nombre = fields.Char(string='Nombre del atributo', required=True)
+    valor = fields.Char(string='Valor')

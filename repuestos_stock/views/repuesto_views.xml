@@ -1,86 +1,70 @@
 <odoo>
 
-   <!-- Vista de Carga -->
-  <record id="view_form_repuesto_carga" model="ir.ui.view">
-    <field name="name">Repuestos - Alta</field>
+  <!-- FORMULARIO COMPLETO: Alta de Repuesto -->
+  <record id="view_form_repuesto" model="ir.ui.view">
+    <field name="name">Repuestos - Formulario Completo</field>
     <field name="model">product.template</field>
     <field name="arch" type="xml">
-      <form string="Alta de Repuesto" data-js_class="repuesto_form_js">
+      <form string="Alta de Repuesto">
         <sheet>
           <group>
             <field name="name" string="Nombre del Repuesto" required="1"/>
-            <field name="tipo_repuesto"/>
             <field name="codigo_repuesto"/>
             <field name="codigo_oem"/>
+            <field name="tipo_repuesto"/>
             <field name="marca"/>
             <field name="list_price" string="Precio de Venta"/>
             <field name="vehiculo_ids" widget="many2many_tags"/>
           </group>
 
-          <group string="Solo Inyectores" class="grupo-inyector o_hidden">
-            <field name="insulating_color"/>
-            <field name="injection_type"/>
-            <field name="number_pines"/>
+          <group string="Ficha Técnica">
+            <field name="ficha_tecnica_ids">
+              <tree editable="bottom">
+                <field name="nombre"/>
+                <field name="valor"/>
+              </tree>
+            </field>
           </group>
         </sheet>
       </form>
     </field>
   </record>
 
-  <!-- Vista de Catálogo -->
-  <record id="view_form_repuesto_catalogo" model="ir.ui.view">
-    <field name="name">Repuestos - Catálogo</field>
-    <field name="model">product.template</field>
-    <field name="arch" type="xml">
-      <form>
-        <sheet>
-          <group>
-            <field name="name"/>
-            <field name="codigo_repuesto"/>
-            <field name="tipo_repuesto"/>
-            <field name="marca"/>
-          </group>
-        </sheet>
-      </form>
-    </field>
-  </record>
-
-  <!-- Vista tipo lista -->
-  <record id="view_tree_repuestos_personalizada" model="ir.ui.view">
+  <!-- VISTA LISTA: Catálogo (ordenado y claro) -->
+  <record id="view_tree_repuestos" model="ir.ui.view">
     <field name="name">Repuestos - Lista</field>
     <field name="model">product.template</field>
     <field name="arch" type="xml">
       <tree>
-        <field name="name"/>
-        <field name="codigo_repuesto"/>
-        <field name="tipo_repuesto"/>
+        <field name="name" string="Nombre"/>
+        <field name="codigo_repuesto" string="Código"/>
+        <field name="qty_available" string="Stock"/>
+        <field name="list_price" string="Precio"/>
+        <field name="tipo_repuesto" string="Tipo"/>
       </tree>
     </field>
   </record>
 
-  <!--Vista Para la Alta de Productos-->
-
-  <record id="action_product_template_repuestos_alta" model="ir.actions.act_window">
+  <!-- ACCIÓN: Alta individual -->
+  <record id="action_repuesto_alta" model="ir.actions.act_window">
     <field name="name">Alta de Repuestos</field>
     <field name="res_model">product.template</field>
     <field name="view_mode">form</field>
-    <field name="view_id" ref="view_form_repuesto_carga"/>
+    <field name="view_id" ref="view_form_repuesto"/>
     <field name="context">{'default_detailed_type': 'product'}</field>
   </record>
 
- <!--Vista para el catalogo en general-->
-  <record id="action_product_template_repuestos_catalogo" model="ir.actions.act_window">
+  <!-- ACCIÓN: Catálogo General -->
+  <record id="action_repuesto_catalogo" model="ir.actions.act_window">
     <field name="name">Catálogo de Repuestos</field>
     <field name="res_model">product.template</field>
     <field name="view_mode">tree,form</field>
     <field name="view_ids" eval="[(5, 0, 0),
-      (0, 0, {'view_mode': 'tree', 'view_id': ref('view_tree_repuestos_personalizada')}),
-      (0, 0, {'view_mode': 'form', 'view_id': ref('view_form_repuesto_catalogo')})
+      (0, 0, {'view_mode': 'tree', 'view_id': ref('view_tree_repuestos')}),
+      (0, 0, {'view_mode': 'form', 'view_id': ref('view_form_repuesto')})
     ]"/>
     <field name="domain">[('tipo_repuesto', '!=', False)]</field>
     <field name="context">{'default_detailed_type': 'product'}</field>
   </record>
-
-
 
 </odoo>
