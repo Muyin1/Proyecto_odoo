@@ -1,36 +1,41 @@
 <odoo>
 
-  <!-- Menú raíz -->
+  <!-- Menú principal que agrupa todo lo relacionado con repuestos -->
   <menuitem id="menu_repuestos_root"
             name="Repuestos"
             sequence="10"/>
 
-  <!-- Submenú para agrupar acciones -->
+  <!-- Submenú que agrupa vistas relacionadas al catálogo de repuestos -->
   <menuitem id="menu_repuestos_catalogo"
             name="Catálogo"
             parent="menu_repuestos_root"
             sequence="10"/>
 
-  <!-- Acción: Catálogo de repuestos (lista + vista simplificada) -->
+  <!-- Vista en lista (catálogo general): muestra todos los repuestos con lista y ficha técnica -->
   <menuitem id="menu_repuestos_catalogo_productos"
             name="Listado"
             parent="menu_repuestos_catalogo"
             action="repuestos_stock.action_repuesto_catalogo"
             sequence="10"/>
+  <!-- ↳ Se enlaza al ID definido en repuesto_views.xml:
+         <record id="action_repuesto_catalogo" model="ir.actions.act_window"> -->
 
-  <!-- Acción: Alta de repuestos (formulario completo de carga) -->
+  <!-- Vista en formulario directo para dar de alta nuevos repuestos -->
   <menuitem id="menu_repuestos_alta"
             name="Alta de Repuestos"
             parent="menu_repuestos_catalogo"
             action="repuestos_stock.action_repuesto_alta"
             sequence="20"/>
+  <!-- ↳ Se enlaza al ID definido en repuesto_views.xml:
+         <record id="action_repuesto_alta" model="ir.actions.act_window"> -->
 
-  <!-- Acción: Vehículos compatibles (ya existente) -->
+  <!-- Vista relacionada a vehículos compatibles (deberías tener un ID: action_vehiculos) -->
   <menuitem id="menu_repuestos_vehiculos"
             name="Vehículos"
             parent="menu_repuestos_catalogo"
             action="repuestos_stock.action_vehiculos"
             sequence="30"/>
+  <!-- ↳ Asegurate de definir este action en otro archivo como:
+         <record id="action_vehiculos" model="ir.actions.act_window"> -->
 
 </odoo>
-
