@@ -61,6 +61,45 @@
     <field name="priority" eval="20"/>
     <field name="arch" type="xml">
       <form string="Detalle del Repuesto" edit="false" create="false" delete="false" class="vista-repuesto-personalizada">
+      <head>
+        <style>
+          .zona-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 1rem;
+          }
+          .zona-info h1 {
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+          }
+          .zona-imagen img {
+            border-radius: 8px;
+            max-width: 280px;
+            transition: transform 0.3s ease;
+          }
+          .zona-imagen img:hover {
+            transform: scale(1.2);
+            cursor: zoom-in;
+          }
+          .zona-detalle {
+            display: flex;
+            gap: 2rem;
+          }
+          .ficha-tecnica-bloque {
+            flex: 1;
+            max-width: 30%;
+          }
+          .zona-aplicaciones {
+            flex: 2;
+          }
+          .titulo-seccion {
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+            border-bottom: 1px solid #ccc;
+          }
+        </style>
+      </head>
         <sheet>
           <div class="zona-header">
             <div class="zona-info">
