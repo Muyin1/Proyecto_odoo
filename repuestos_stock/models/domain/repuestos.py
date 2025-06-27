@@ -40,7 +40,7 @@ class Repuesto(models.Model):
 
 
     # Vinculacion de Prouductos equivalentes 
-    producto_rquivalente_ids = fields.Many2many(
+    producto_equivalente_ids = fields.Many2many(
         comodel_name = 'product.template',
         string='Equivalentes',
         compute='_compute_equivalentes',
@@ -76,7 +76,7 @@ class Repuesto(models.Model):
         return producto
     
     #Api para vinculacion por Codigo OEM
-    @api.depends('coidgo_oem')
+    @api.depends('codigo_oem')
     def _compute_equivalentes(self):
         for producto in self:
             if producto.codigo_oem:
