@@ -1,0 +1,7 @@
+<odoo>
+  <template id="assets_backend" name="Catálogo Visual Repuestos" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+      <link rel="stylesheet" type="text/scss" href="/repuestos_stock/static/src/css/visual_catalogo.css"/>
+    </xpath>
+  </template>
+</odoo>

@@ -14,6 +14,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/assets.xml',
         'views/repuesto_views.xml',
         'views/vehiculo_views.xml',
         'views/menuitem.xml',
