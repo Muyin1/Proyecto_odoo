@@ -45,6 +45,47 @@
     </field>
   </record>
 
+  <!--Vista de Solo lectura , lleva edicion visutal-->
+  <record id="view_form_repuesto_vista" model="ir.ui.view">
+    <field name="name">Repuestos - Solo Vista</field>
+    <field name="model">product.template</field>
+    <field name="priority" eval="20"/>
+    <field name="arch" type="xml">
+      <form string="Detalle del Repuesto" edit="false" create="false" delete="false">
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="name" readonly="1"/>
+              <span class="text-muted"> — <field name="codigo_repuesto" readonly="1"/></span>
+            </h1>
+          </div>
+
+          <group>
+            <field name="tipo_repuesto" readonly="1"/>
+            <field name="codigo_oem" readonly="1"/>
+            <field name="marca" readonly="1"/>
+            <field name="list_price" readonly="1"/>
+          </group>
+
+          <group string="Ficha Técnica">
+            <field name="ficha_tecnica_ids" readonly="1">
+              <tree>
+                <field name="nombre"/>
+                <field name="valor"/>
+              </tree>
+            </field>
+          </group>
+
+          <group string="Aplicaciones">
+            <field name="vehiculo_ids" widget="many2many_tags" readonly="1"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+
+
   <!-- ACCIÓN: Alta individual -->
   <record id="action_repuesto_alta" model="ir.actions.act_window">
     <field name="name">Alta de Repuestos</field>
@@ -63,6 +104,16 @@
       (0, 0, {'view_mode': 'tree', 'view_id': ref('view_tree_repuestos')}),
       (0, 0, {'view_mode': 'form', 'view_id': ref('view_form_repuesto')})
     ]"/>
+    <field name="domain">[('tipo_repuesto', '!=', False)]</field>
+    <field name="context">{'default_detailed_type': 'product'}</field>
+  </record>
+
+  <!--ACCION: Vista del repuesto-->
+  <record id="action_repuesto_vista" model="ir.actions.act_window">
+    <field name="name">Vista Detallada</field>
+    <field name="res_model">product.template</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="view_form_repuesto_vista"/>
     <field name="domain">[('tipo_repuesto', '!=', False)]</field>
     <field name="context">{'default_detailed_type': 'product'}</field>
   </record>

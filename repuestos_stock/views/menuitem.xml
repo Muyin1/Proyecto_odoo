@@ -20,6 +20,14 @@
   <!-- ↳ Se enlaza al ID definido en repuesto_views.xml:
          <record id="action_repuesto_catalogo" model="ir.actions.act_window"> -->
 
+  <!-- Vista Detallada de Repuestos (solo visualización) -->
+  <menuitem id="menu_repuestos_vista"
+            name="Vista Detallada"
+            parent="menu_repuestos_catalogo"
+            action="repuestos_stock.action_repuesto_vista"
+            sequence="15"/>
+
+
   <!-- Vista en formulario directo para dar de alta nuevos repuestos -->
   <menuitem id="menu_repuestos_alta"
             name="Alta de Repuestos"
