@@ -102,7 +102,7 @@
     <field name="view_mode">tree,form</field>
     <field name="view_ids" eval="[(5, 0, 0),
       (0, 0, {'view_mode': 'tree', 'view_id': ref('view_tree_repuestos')}),
-      (0, 0, {'view_mode': 'form', 'view_id': ref('view_form_repuesto')})
+      (0, 0, {'view_mode': 'form', 'view_id': ref('view_form_repuesto_vista')})
     ]"/>
     <field name="domain">[('tipo_repuesto', '!=', False)]</field>
     <field name="context">{'default_detailed_type': 'product'}</field>
