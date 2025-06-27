@@ -36,7 +36,7 @@ class Repuesto(models.Model):
 
 
     #Campo para cargar stock inicial
-    stock_inicial = fields.float(string='Stock Inicial', help="Cantidad inicial en mano al momento de crear el repuesto")
+    stock_inicial = fields.Float(string='Stock Inicial', help="Cantidad inicial en mano al momento de crear el repuesto")
 
 
     # Podés seguir agregando campos para otros tipos acá (sensor, alternador, etc.)
