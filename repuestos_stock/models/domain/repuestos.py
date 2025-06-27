@@ -70,7 +70,7 @@ class Repuesto(models.Model):
     
     def _crear_movimiento_stock_inicial(self, cantidad):
         StockQuant = self.env['stock.quant'].sudo()
-        Almacen = self.env['stock.warehouse'].search([('compani_id', '=', self.env.company.id)], limit=1)
+        Almacen = self.env['stock.warehouse'].search([('company_id', '=', self.env.company.id)], limit=1)
 
         location = Almacen.lot_stock_id or self.env.ref('stock.stock_location_stock')
 
