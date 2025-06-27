@@ -1,19 +1,58 @@
-/* Oculta secciones hasta que JS las active */
-.o_hidden {
-    display: none !important;
+.vista-repuesto-personalizada .zona-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
-/* Estilo para secciones visibles */
-.visible-section {
-    background-color: #f5faff;
-    border-left: 3px solid #1976d2;
-    padding: 10px 15px;
-    margin-top: 10px;
-    border-radius: 4px;
+.vista-repuesto-personalizada .zona-info {
+  flex: 1;
 }
 
-/* Tipografía mejorada para campos importantes */
-.o_form_label {
-    font-weight: 600;
-    color: #333;
+.titulo-repuesto {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.tipo-precio {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.zona-imagen {
+  flex-basis: 280px;
+}
+
+.imagen-ampliable img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.imagen-ampliable img:hover {
+  transform: scale(1.2);
+  cursor: zoom-in;
+}
+
+.zona-detalle {
+  display: flex;
+  gap: 2rem;
+}
+
+.ficha-tecnica-bloque {
+  flex: 1;
+  max-width: 30%;
+}
+
+.zona-aplicaciones {
+  flex: 2;
+}
+
+.titulo-seccion {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.3rem;
 }

@@ -39,12 +39,19 @@ class Repuesto(models.Model):
     stock_inicial = fields.Float(string='Stock Inicial', help="Cantidad inicial en mano al momento de crear el repuesto")
 
 
-    # Podés seguir agregando campos para otros tipos acá (sensor, alternador, etc.)
+    # Vinculacion de Prouductos equivalentes 
+    producto_rquivalente_ids = fields.Many2many(
+        comodel_name = 'product.template',
+        string='Equivalentes',
+        compute='_compute_equivalentes',
+        store = False
+    )
 
     _sql_constraints = [
         ('unique_codigo_repuesto', 'unique(codigo_repuesto)', "El código del repuesto debe ser único.")
     ]
 
+    #Api para codigo de Repuesto
     @api.constrains('codigo_repuesto')
     def _check_codigo_repuesto(self):
         for record in self:
@@ -67,6 +74,20 @@ class Repuesto(models.Model):
             producto._crear_movimiento_stock_inicial(stock_qty)
 
         return producto
+    
+    #Api para vinculacion por Codigo OEM
+    @api.depends('coidgo_oem')
+    def _compute_equivalentes(self):
+        for producto in self:
+            if producto.codigo_oem:
+                equivalentes = self.search([
+                    ('codigo_oem', '=', producto.codigo_oem),
+                    ('id', '!=', producto.id),
+                    ('tipo_repuesto', '=', producto.tipo_repuesto)
+                ])
+                producto.producto_equivalente_ids = equivalentes
+            else:
+                producto.producto_equivalente_ids = False
     
     def _crear_movimiento_stock_inicial(self, cantidad):
         StockQuant = self.env['stock.quant'].sudo()
