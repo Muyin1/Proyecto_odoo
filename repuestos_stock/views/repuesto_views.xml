@@ -84,6 +84,31 @@
     </field>
   </record>
 
+  <!--Vista del Buscador-->
+  <record id="view_search_repuestos" model="ir.ui.view">
+    <field name="name">Repuestos - Búsqueda</field>
+    <field name="model">product.template</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Repuestos">
+        <field name="name" string="Nombre"/>
+        <field name="codigo_repuesto" string="Código Interno"/>
+        <field name="codigo_oem" string="Código OEM"/>
+        <field name="vehiculo_ids" string="Vehículo"/>
+        <field name="marca"/>
+        <field name="tipo_repuesto"/>
+
+        <!-- Filtros desplegables -->
+        <filter name="inyectores" string="Sólo Inyectores" domain="[('tipo_repuesto','=','inyector')]"/>
+        <filter name="pastillas" string="Sólo Pastillas" domain="[('tipo_repuesto','=','pastillas_freno')]"/>
+
+        <group expand="0" string="Agrupar por">
+          <filter name="group_tipo" string="Tipo de Repuesto" context="{'group_by': 'tipo_repuesto'}"/>
+          <filter name="group_marca" string="Marca" context="{'group_by': 'marca'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
 
 
   <!-- ACCIÓN: Alta individual -->
@@ -100,6 +125,7 @@
     <field name="name">Catálogo de Repuestos</field>
     <field name="res_model">product.template</field>
     <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="repuestos_stock.view_search_repuestos"/>
     <field name="view_ids" eval="[(5, 0, 0),
       (0, 0, {'view_mode': 'tree', 'view_id': ref('view_tree_repuestos')}),
       (0, 0, {'view_mode': 'form', 'view_id': ref('view_form_repuesto_vista')})
