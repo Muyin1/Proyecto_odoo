@@ -7,14 +7,23 @@
     <field name="arch" type="xml">
       <form string="Alta de Repuesto">
         <sheet>
+          <div class="oe_title">
+            <field name="image_1920" widget="image" class="oe_avatar"/>
+            <h1>
+              <field name="name" string="Nombre del Repuesto" required="1"/>
+              <span class="text-muted"> — <field name="codigo_repuesto"/></span>
+            </h1>
+          </div>
           <group>
-            <field name="name" string="Nombre del Repuesto" required="1"/>
-            <field name="codigo_repuesto"/>
             <field name="codigo_oem"/>
             <field name="tipo_repuesto"/>
             <field name="marca"/>
             <field name="list_price" string="Precio de Venta"/>
             <field name="vehiculo_ids" widget="many2many_tags"/>
+          </group>
+
+          <group>
+            <field name="stock_inicial"/>
           </group>
 
           <group string="Ficha Técnica">
@@ -45,7 +54,7 @@
     </field>
   </record>
 
-  <!--Vista de Solo lectura , lleva edicion visutal-->
+  <!-- Vista Solo Lectura -->
   <record id="view_form_repuesto_vista" model="ir.ui.view">
     <field name="name">Repuestos - Solo Vista</field>
     <field name="model">product.template</field>
@@ -54,6 +63,7 @@
       <form string="Detalle del Repuesto" edit="false" create="false" delete="false">
         <sheet>
           <div class="oe_title">
+            <field name="image_1920" widget="image" class="oe_avatar"/>
             <h1>
               <field name="name" readonly="1"/>
               <span class="text-muted"> — <field name="codigo_repuesto" readonly="1"/></span>
