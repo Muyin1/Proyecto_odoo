@@ -52,15 +52,7 @@
         <field name="tipo_repuesto" string="Tipo"/>
       </tree>
     </field>
-  </record>
-
-  <!--Accion para Equivalencias-->
-  <record id="action_product_equivalente_kanban" model="ir.actions.act_window">
-    <field name="name">Equivalentes</field>
-    <field name="res_model">product.template</field>
-    <field name="view_mode">kanban,form</field>
-    <field name="domain">[('id', 'in', context.get('active_id') and context.get('active_id').producto_equivalente_ids or [])]</field>
-  </record>
+  </record>>
 
   <!-- Vista Solo Lectura -->
   <record id="view_form_repuesto_vista" model="ir.ui.view">
@@ -151,11 +143,7 @@
                      readonly="1"/>
               
               <h2 class="titulo-seccion">Equivalentes</h2>
-                <button name="repuestos_stock.action_product_equivalente_kanban"
-                        type="action"
-                        string="Ver equivalentes"
-                        class="btn btn-secondary"
-                        context="{'active_id': id}"/>
+                <field name="producto_equivalente_ids" widget="many2many_tags" readonly="1"/>
             </div>
           </div>
         </sheet>
