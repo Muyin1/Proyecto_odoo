@@ -138,7 +138,7 @@
             <div class="zona-aplicaciones">
               <h2 class="titulo-seccion">Aplicaciones</h2>
               <field name="vehiculo_ids"
-                     widget="many2one_tags"
+                     widget="many2many_tags"
                      options ="{'no_create': True}" 
                      readonly="1"/>
               
