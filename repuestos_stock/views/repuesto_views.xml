@@ -106,16 +106,16 @@
               <h1 class="titulo-repuesto">
                 <field name="name" readonly="1"/>
               </h1>
+              <h2 class="subtitulo-repuesto">
+                <field name="tipo_repuesto" readonly="1">
+              </h2>
               <div class="tipo-precio">
-                <span class="tipo-repuesto">
-                  <field name="tipo_repuesto" readonly="1"/>
-                </span>
-                <span class="precio-venta">
+                <div class="precio-venta">
                   Precio: $<field name="list_price" readonly="1"/>
-                </span>
-                <span class="stock-disponible">
+                </div>
+                <div class="stock-disponible">
                   Stock: <field name="qty_available" readonly="1"/>
-                </span>
+                </div>
               </div>
             </div>
 
@@ -137,11 +137,18 @@
 
             <div class="zona-aplicaciones">
               <h2 class="titulo-seccion">Aplicaciones</h2>
-              <field name="vehiculo_ids" widget="many2many_tags" readonly="1"/>
+              <field name="vehiculo_ids"
+                     widget="many2one_tags"
+                     options ="{'no_create': True}" 
+                     readonly="1"/>
               
               <h2 class="titulo-seccion">Equivalentes</h2>
               <!-- Esto asumimos que ya tenés una relación Many2many o función para mostrar equivalentes -->
-              <field name="producto_equivalente_ids" widget="many2many_tags" readonly="1"/>
+              <field name="producto_equivalente_ids" 
+                     widget="many2many_tags" 
+                     options="{'no_create' : True}"
+                     context="{'form_view_ref' : 'repuestos_stock.views_form_repuestos_vista'}"
+                     readonly="1"/>
             </div>
           </div>
         </sheet>
