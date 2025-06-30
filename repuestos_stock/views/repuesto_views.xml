@@ -151,7 +151,7 @@
                      readonly="1"/>
               
               <h2 class="titulo-seccion">Equivalentes</h2>
-                <button name="action_product_equivalente_kanban"
+                <button name="repuestos_stock.action_product_equivalente_kanban"
                         type="action"
                         string="Ver equivalentes"
                         class="btn btn-secondary"
