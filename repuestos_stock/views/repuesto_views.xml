@@ -107,7 +107,7 @@
                 <field name="name" readonly="1"/>
               </h1>
               <h2 class="subtitulo-repuesto">
-                <field name="tipo_repuesto" readonly="1">
+                <field name="tipo_repuesto" readonly="1"/>
               </h2>
               <div class="tipo-precio">
                 <div class="precio-venta">
