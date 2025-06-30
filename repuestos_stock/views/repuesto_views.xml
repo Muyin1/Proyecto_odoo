@@ -54,6 +54,15 @@
     </field>
   </record>
 
+  <!--Accion para Equivalencias-->
+  <record id="action_product_equivalente_kanban" model="ir.actions.act_window">
+    <field name="name">Equivalentes</field>
+    <field name="res_model">product.template</field>
+    <field name="view_mode">kanban,form</field>
+    <field name="domain">[('id', 'in', active_id.producto_equivalente_ids)]</field>
+    <field name="context">{}</field>
+  </record>
+
   <!-- Vista Solo Lectura -->
   <record id="view_form_repuesto_vista" model="ir.ui.view">
     <field name="name">Repuestos - Vista Visual Avanzada</field>
@@ -143,12 +152,11 @@
                      readonly="1"/>
               
               <h2 class="titulo-seccion">Equivalentes</h2>
-              <!-- Esto asumimos que ya tenés una relación Many2many o función para mostrar equivalentes -->
-              <field name="action_product_equivalente_kanban" 
-                     widget="many2many_tags" 
-                     options="{'no_create' : True}"
-                     context="{'form_view_ref' : 'repuestos_stock.views_form_repuestos_vista'}"
-                     readonly="1"/>
+                <button name="action_product_equivalente_kanban"
+                        type="action"
+                        string="Ver equivalentes"
+                        class="btn btn-secondary"
+                        context="{'active_id': id}"/>
             </div>
           </div>
         </sheet>
@@ -216,14 +224,7 @@
     <field name="context">{'default_detailed_type': 'product'}</field>
   </record>
   
-  <!--Accion para Equivalencias-->
-  <record id="action_product_equivalente_kanban" model="ir.actions.act_window">
-    <field name="name">Equivalentes</field>
-    <field name="res_model">product.template</field>
-    <field name="view_mode">kanban,form</field>
-    <field name="domain">[('id', 'in', active_id.producto_equivalente_ids)]</field>
-    <field name="context">{}</field>
-  </record>
+  
 
 
 </odoo>
