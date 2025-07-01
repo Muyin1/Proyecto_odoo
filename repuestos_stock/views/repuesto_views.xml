@@ -146,7 +146,7 @@
                   <field name="version"/>
                   <field name="motor"/>
                   <field name="codigo_motor"/>
-                  <field name="anio"/>
+                  <field name="anios"/>
                 </tree>
               </field>
               
