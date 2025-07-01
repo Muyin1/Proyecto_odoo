@@ -136,14 +136,20 @@
             </div>
 
             <div class="zona-aplicaciones">
-              <h2 class="titulo-seccion">Aplicaciones</h2>
-              <field name="vehiculo_ids"
-                     widget="many2many_tags"
-                     options ="{'no_create': True}" 
-                     readonly="1"/>
-              
-              <h2 class="titulo-seccion">Equivalentes</h2>
+             <h2 class="titulo-seccion">Equivalentes</h2>
                 <field name="producto_equivalente_ids" widget="many2many_tags" readonly="1"/>
+              <h2 class="titulo-seccion">Aplicaciones</h2>
+              <field name="vehiculo_ids" readonly="1">
+                <tree>
+                  <field name="marca"/>
+                  <field name="modelo"/>
+                  <field name="version"/>
+                  <field name="motor"/>
+                  <field name="codigo_motor"/>
+                  <field name="anio"/>
+                </tree>
+              </field>
+              
             </div>
           </div>
         </sheet>
