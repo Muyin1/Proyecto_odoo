@@ -69,6 +69,9 @@
             gap: 2rem;
             margin-bottom: 1rem;
           }
+          .equivalencia{
+            widht: 50%;
+          }
           .zona-info h1 {
             margin-bottom: 0.5rem;
             font-size: 1.8rem;
@@ -117,6 +120,10 @@
                   Stock: <field name="qty_available" readonly="1"/>
                 </div>
               </div>
+              <div class="equivalencia">
+                <h2 class="titulo-seccion">Equivalentes</h2>
+                  <field name="producto_equivalente_ids"  readonly="1"/>
+              </div>
             </div>
 
             <div class="zona-imagen">
@@ -136,8 +143,6 @@
             </div>
 
             <div class="zona-aplicaciones">
-             <h2 class="titulo-seccion">Equivalentes</h2>
-                <field name="producto_equivalente_ids" widget="many2many_tags" readonly="1"/>
               <h2 class="titulo-seccion">Aplicaciones</h2>
               <field name="vehiculo_ids" readonly="1">
                 <tree>
@@ -151,6 +156,7 @@
               </field>
               
             </div>
+            
           </div>
         </sheet>
       </form>
