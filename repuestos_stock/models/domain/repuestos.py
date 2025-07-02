@@ -8,8 +8,11 @@ class Repuesto(models.Model):
     tipo_repuesto = fields.Selection([
         ('inyector', 'Inyector'),
         ('pastillas_freno', 'Pastillas de Freno'),
-        ('sensor', 'Sensor'),
-        ('alternador', 'Alternador'),
+        ('regulador_presion', 'Regulador de Presion'),
+        ('sensor_Mariposa', 'Sensor de Posicion de Mariposas'),
+        ('sensor_map','Sensor MAP'),
+        ('sensor_rpm','Sensor de RPM / Cigueñal'),
+        ('sensor_maf','Sensor MAF'),
         # Podés seguir agregando tipos acá
     ], string="Tipo de Repuesto", tracking=True)
 
