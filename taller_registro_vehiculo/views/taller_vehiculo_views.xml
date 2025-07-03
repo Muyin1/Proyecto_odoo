@@ -9,10 +9,14 @@
                         <field name="partner_id"/>
                         <field name="marca"/>
                         <field name="modelo"/>
+                        <field name="version"/>
                         <field name="anio"/>
-                        <field name="tipo_motor"/>
+                        <field name="motor"/>
                         <field name="patente"/>
-                        <field name="descripcion"/>
+                        <field name="detalles"/>
+                        <field name="kilometros"/>
+                        <field name="num_chasis"/>
+                        <field name="codigo_motor"
                     </group>
                 </sheet>
             </form>

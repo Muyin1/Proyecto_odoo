@@ -8,10 +8,15 @@ class TallerVehiculo(models.Model):
     partner_id = fields.Many2one('res.partner', string='Cliente', required=True)
     marca = fields.Char(string='Marca', required=True)
     modelo = fields.Char(string='Modelo', required=True)
+    version = fields.char(string="Version")
     anio = fields.Char(string='Año')
-    tipo_motor = fields.Char(string='Tipo de Motor')
-    patente = fields.Char(string='Patente')
-    descripcion = fields.Text(string='Descripción')
+    motor = fields.Char(string='Motor')
+    patente = fields.Char(string='Patente', required=True)
+    detalles = fields.Text(string='Detalles')
+    kilometros = fields.Text(string="Kilometros")
+    num_chasis = fields.Text(string = "Numero de Chasis / VIM ")
+    codigo_motor = fields.Text(string="Codigo de Motor")
+
 
     @api.depends('partner_id', 'marca', 'modelo', 'patente')
     def _compute_name(self):
