@@ -4,24 +4,13 @@
     'summary' : 'Registro de vehiculos por cliente para talleres',
     'category' : 'Taller',
     'author' : 'Burnet Mauricio Nicolas',
-    'depends' : ['base','contacts', 'stock', 'sale', 'website'],
-    'data' : 
-        [
+    'depends' : ['base','contacts'],
+    'data' : [
+        'views/taller_vehiculo_views.xml', 
+        'views/taller_menu.xml',
         'security/ir.model.access.csv',
-        'views/menuitem.xml',
-        'views/repuesto_views.xml',
-        'views/vehiculo_views.xml',
-        'templates/portal_repuesto_templates.xml',
-        'templates/portal_inyectores_template.xml',
+        'views/taller_visita_views.xml'
         ],
-    'assets': 
-    {
-        'web.assets_backend': 
-        [
-            'repuestos_stock/static/src/js/repuesto_form.js',
-        ],
-    },
-
     'installable' : True,
     'applications' : True,
 }

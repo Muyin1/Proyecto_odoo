@@ -11,4 +11,5 @@
               parent="menu_taller_root"
               action="action_taller_vehiculo"
               sequence="10"/>
+              
 </odoo>
