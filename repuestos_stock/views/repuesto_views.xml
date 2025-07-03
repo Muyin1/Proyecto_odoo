@@ -52,7 +52,17 @@
         <field name="tipo_repuesto" string="Tipo"/>
       </tree>
     </field>
-  </record>>
+  </record>
+
+  <!--ACCION: Editar Repuesto-->
+  <record id="action_editar_repuesto_desde_vista" model="ir.actions.act_window">
+    <field name="name">Editar Repuesto</field>
+    <field name="res_model">product.template</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="repuestos_stock.view_form_repuesto"/>
+    <field name="domain">[('id', '=', active_id)]</field>
+    <field name="context">{}</field>
+  </record>
 
   <!-- Vista Solo Lectura -->
   <record id="view_form_repuesto_vista" model="ir.ui.view">
@@ -116,7 +126,7 @@
         <sheet>
           <div class="zona-header">
             <div class="boton-editar">
-              <button name="action_editar_repuesto_desde_vista" type="action" string="Editar Repuesto" class="btn btn-sm btn-link" context="{'active_id' : id}" />
+              <button name="action_editar_repuesto_desde_vista" type="action" string="Editar Repuesto" class="btn btn-sm btn-outline-secondary" context="{'active_id' : id}" />
             </div>
             <div class="zona-info">
               <h1 class="titulo-repuesto">
@@ -242,15 +252,7 @@
     <field name="context">{'default_detailed_type': 'product'}</field>
   </record>
 
-  <!--ACCION: Editar Repuesto-->
-  <record id="action_editar_repuesto_desde_vista" model="ir.actions.act_window">
-    <field name="name">Editar Repuesto</field>
-    <field name="res_model">product.template</field>
-    <field name="view_mode">form</field>
-    <field name="view_id" ref="repuestos_stock.view_form_repuesto"/>
-    <field name="domain">[('id', '=', active_id)]</field>
-    <field name="context">{}</field>
-  </record>
+  
   
   
 
