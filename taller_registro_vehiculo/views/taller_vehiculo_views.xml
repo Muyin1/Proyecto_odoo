@@ -16,7 +16,7 @@
                         <field name="detalles"/>
                         <field name="kilometros"/>
                         <field name="num_chasis"/>
-                        <field name="codigo_motor"
+                        <field name="codigo_motor"/>
                     </group>
                 </sheet>
             </form>
