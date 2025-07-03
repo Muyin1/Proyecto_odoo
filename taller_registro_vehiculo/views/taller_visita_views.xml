@@ -5,6 +5,13 @@
         <field name="arch" type="xml">
             <form string="Visita del Taller">
                 <sheet>
+                    <header>
+                        <button name="%(report_taller_visita)d"
+                                string="Imprimir Constancia"
+                                type="action"
+                                class="btn-primary"
+                                context="{'active_id': active_id}"/>
+                    </header>
                     <group>
                         <field name="vehiculo_id"/>
                         <field name="fecha"/>
