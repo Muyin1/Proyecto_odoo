@@ -11,7 +11,7 @@
                         <field name="modelo"/>
                         <field name="version"/>
                         <field name="anio"/>
-                        <field name="motor"/>
+                        <field name="tipo_motor"/>
                         <field name="patente"/>
                         <field name="detalles"/>
                         <field name="kilometros"/>

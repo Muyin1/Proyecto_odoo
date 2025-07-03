@@ -9,8 +9,10 @@
         'views/taller_vehiculo_views.xml', 
         'views/taller_menu.xml',
         'security/ir.model.access.csv',
-        'views/taller_visita_views.xml'
+        'views/taller_visita_views.xml',
+        'report/taller_visita_report.xml',
+        'report/taller_visita_templates-xml',
         ],
     'installable' : True,
-    'applications' : True,
+    'application' : True,
 }
