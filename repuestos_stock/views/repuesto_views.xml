@@ -69,6 +69,14 @@
             gap: 2rem;
             margin-bottom: 1rem;
           }
+          .boton-editar{
+            aling-self: flex-start;
+            margin-bottom: 1rem;
+          }
+          .boton-editar .btn{
+            font-size: 0.85rem;
+            padding: 6px 12px;
+          }
           .equivalencia{
             widht: 50%;
           }
@@ -105,6 +113,9 @@
       </head>
         <sheet>
           <div class="zona-header">
+            <div class="boton-editar"
+              <button name="repuestos_stock.action_repuesto_alta" type="action" string="Editar Repuesto" class="btn btn-primary" context="{'active_id' : id}" />
+            </div>
             <div class="zona-info">
               <h1 class="titulo-repuesto">
                 <field name="name" readonly="1"/>
@@ -179,6 +190,12 @@
         <!-- Filtros desplegables -->
         <filter name="inyectores" string="Sólo Inyectores" domain="[('tipo_repuesto','=','inyector')]"/>
         <filter name="pastillas" string="Sólo Pastillas" domain="[('tipo_repuesto','=','pastillas_freno')]"/>
+        <filter name="regulador_presion" string="Solor Regulador de Presion" domain="[('tipo_repuesto','=','regulador_presion')]"/>
+        <filter name="sensor_maripoas" string="Solo sensor   de mariposa" domain="[('tipo_repuesto', '=', 'sensor_mariposa')]"/>
+        <filter name="sensor_map" string="Solo sensor MAP" domain="[('tipo_repuesto', '=', 'sensor_map')]"/>
+        <filter name="sensor_rpm" string="Solo sensor de RPM" domain="[('tipo_repuesto', '=', 'sensor_rpm')]"/>
+        <filter name="sensor_maf" string="Solo sensor MAF" domain="[('tipo_repuesto', '=', 'sensor_maf')]"/>
+        
 
         <group expand="0" string="Agrupar por">
           <filter name="group_tipo" string="Tipo de Repuesto" context="{'group_by': 'tipo_repuesto'}"/>
