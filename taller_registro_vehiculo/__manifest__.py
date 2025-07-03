@@ -11,7 +11,7 @@
         'security/ir.model.access.csv',
         'views/taller_visita_views.xml',
         'report/taller_visita_report.xml',
-        'report/taller_visita_templates-xml',
+        'report/taller_visita_templates.xml',
         ],
     'installable' : True,
     'application' : True,
