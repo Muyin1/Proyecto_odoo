@@ -6,6 +6,7 @@ class TallerVisita(models.Model):
 
     name = fields.Char(string='Nombre', compute='_compute_name', store=True)
     vehiculo_id = fields.Many2one('taller.vehiculo', string='Vehiculo', required=True)
+    kilometros = fields.Char(string='Kilometros',required=True)
     fecha = fields.Date(string='Fecha de la Visita', required=True)
     fecha_salida = fields.Date(string='Fecha de Salida')
     estado = fields.Selection([
@@ -17,6 +18,7 @@ class TallerVisita(models.Model):
         ('escaneo', 'Escaneo'),
         ('service', 'Service'),
         ('cambio_distribucion', 'Cambio de Distribucion'),
+        ('cambio_amortiguador','Cambio de Amortiguador'),
         ('otro', 'Otro'),
     ], string='Tipo de Trabajo', required=True)
     notas = fields.Text(string='Notas')

@@ -14,7 +14,6 @@
                         <field name="tipo_motor"/>
                         <field name="patente"/>
                         <field name="detalles"/>
-                        <field name="kilometros"/>
                         <field name="num_chasis"/>
                         <field name="codigo_motor"/>
                     </group>

@@ -13,7 +13,6 @@ class TallerVehiculo(models.Model):
     tipo_motor = fields.Char(string='Tipo de Motor')
     patente = fields.Char(string='Patente', required=True)
     detalles = fields.Text(string='Detalles')
-    kilometros = fields.Text(string="Kilometros")
     num_chasis = fields.Text(string = "Numero de Chasis / VIM ")
     codigo_motor = fields.Text(string="Codigo de Motor")
 
