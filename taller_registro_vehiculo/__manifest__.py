@@ -9,7 +9,6 @@
         'views/taller_vehiculo_views.xml', 
         'views/taller_menu.xml',
         'views/taller_visita_views.xml',
-        'report/taller_visita_template.xml',
         'security/ir.model.access.csv',
 
         ],
