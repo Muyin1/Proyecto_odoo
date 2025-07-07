@@ -1,4 +1,14 @@
 <odoo>
+
+    <report
+        id="report_taller_visita"
+        model="taller.visita"
+        string="Imprimir Constancia"
+        report_type="qweb-pdf"
+        name="taller_registro_vehiculo.report_visita_document"
+        file="taller_registro_vehiculo.report_visita_document"
+        print_report_name="'Constancia - %s' % (object.vehiculo_id.name or 'Visita')"
+    />
     <record id="view_form_taller_visita" model="ir.ui.view">
         <field name="name">taller.visita.form</field>
         <field name="model">taller.visita</field>
@@ -68,13 +78,5 @@
               sequence="20"/>
 
 
-     <report
-        id="report_taller_visita"
-        model="taller.visita"
-        string="Imprimir Constancia"
-        report_type="qweb-pdf"
-        name="taller_registro_vehiculo.report_visita_document"
-        file="taller_registro_vehiculo.report_visita_document"
-        print_report_name="'Constancia - %s' % (object.vehiculo_id.name or 'Visita')"
-    />
+   
 </odoo>
