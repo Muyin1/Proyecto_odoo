@@ -4,8 +4,8 @@
     model="taller.visita"
     string="Imprimir Constancia"
     report_type="qweb-pdf"
-    name="taller_registro_visitas.report_visita_document"
-    file="taller_registro_visitas.report_visita_document"
+    name="taller_registro_vehiculo.report_visita_document"
+    file="taller_registro_vehiculo.report_visita_document"
     print_report_name="'Constancia - %s' % (object.vehiculo_id.name or 'Visita')"
   />
 </odoo>
