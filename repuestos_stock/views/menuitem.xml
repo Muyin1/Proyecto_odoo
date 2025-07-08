@@ -46,12 +46,4 @@
   <!-- ↳ Asegurate de definir este action en otro archivo como:
          <record id="action_vehiculos" model="ir.actions.act_window"> -->
 
-
-  <!-- Vista en formulario para la edicion de los productos-->
-  <menuitem id="menu_repuesto_edicion"
-          name="Edición de Repuestos"
-          parent="menu_root_repuestos"
-          action="repuestos_stock.action_editar_repuesto"/>
-
-
 </odoo>
