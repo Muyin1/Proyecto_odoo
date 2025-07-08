@@ -54,6 +54,7 @@ class Repuesto(models.Model):
         ('unique_codigo_repuesto', 'unique(codigo_repuesto)', "El código del repuesto debe ser único.")
     ]
 
+
     #Api para codigo de Repuesto
     @api.constrains('codigo_repuesto')
     def _check_codigo_repuesto(self):
@@ -92,6 +93,39 @@ class Repuesto(models.Model):
             else:
                 producto.producto_equivalente_ids = False
     
+    @api.model
+    def create(self, vals):
+        tipo = vals.get('tipo_repuesto')
+        precio_base = vals.get('list_price', 0.0)
+
+        # Lógica por tipo
+        if tipo == 'inyector':
+            # IVA 21% + margen 25%
+            precio_final = precio_base * 1.21 * 1.25
+        elif tipo == 'sensor_map':
+            # IVA 10.5% + margen 15%
+            precio_final = precio_base * 1.21 * 1.15
+        elif tipo == 'pastillas_freno':
+            # IVA 21% + margen 20%
+            precio_final = precio_base * 1.21 * 1.20
+        else:
+            # Si no se reconoce, dejamos el precio original
+            precio_final = precio_base
+
+        vals['list_price'] = round(precio_final, 2)
+
+        # Stock inicial
+        stock_qty = vals.pop('stock_inicial', 0.0)
+        producto = super().create(vals)
+
+        if stock_qty > 0:
+            producto._crear_movimiento_stock_inicial(stock_qty)
+
+        return producto
+
+
+
+
     def _crear_movimiento_stock_inicial(self, cantidad):
         StockQuant = self.env['stock.quant'].sudo()
         Almacen = self.env['stock.warehouse'].search([('company_id', '=', self.env.company.id)], limit=1)
