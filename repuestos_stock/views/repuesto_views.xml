@@ -54,6 +54,17 @@
     </field>
   </record>
 
+    
+  <!--ACCION: Vista Editable del Prodcuto-->
+  <record id="action_editar_repuesto" model="ir.actions.act_window">
+    <field name="name">Edición de Repuesto</field>
+    <field name="res_model">product.template</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="repuestos_stock.view_form_repuesto_edicion"/>
+    <field name="target">current</field>
+  </record>
+
+
   <!-- Vista Solo Lectura -->
   <record id="view_form_repuesto_vista" model="ir.ui.view">
     <field name="name">Repuestos - Vista Visual Avanzada</field>
@@ -282,15 +293,6 @@
     <field name="context">{'default_detailed_type': 'product'}</field>
   </record>
 
-  
-  <!--ACCION: Vista Editable del Prodcuto-->
-  <record id="action_editar_repuesto" model="ir.actions.act_window">
-    <field name="name">Edición de Repuesto</field>
-    <field name="res_model">product.template</field>
-    <field name="view_mode">form</field>
-    <field name="view_id" ref="repuestos_stock.view_form_repuesto_edicion"/>
-    <field name="target">current</field>
-  </record>
 
   
 
