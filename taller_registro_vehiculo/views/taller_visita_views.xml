@@ -7,7 +7,7 @@
                 <sheet>
                     <group>
                         <field name="vehiculo_id"/>
-                        <field name='kilometros'/>
+                        <field name="kilometros"/>
                         <field name="fecha"/>
                         <field name="fecha_salida"/>
                         <field name="estado"/>
