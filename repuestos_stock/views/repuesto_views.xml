@@ -116,9 +116,6 @@
       </head>
         <sheet>
           <div class="zona-header">
-            <div class="boton-editar">
-              <button name="action_editar_repuesto_desde_vista" type="action" string="Editar Repuesto" class="btn btn-sm btn-outline-secondary" context="{'active_id' : id}" />
-            </div>
             <div class="zona-info">
               <h1 class="titulo-repuesto">
                 <field name="name" readonly="1"/>
