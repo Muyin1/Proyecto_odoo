@@ -11,8 +11,9 @@ class Repuesto(models.Model):
         ('regulador_presion', 'Regulador de Presion'),
         ('sensor_mariposa', 'Sensor de Posicion de Mariposas'),
         ('sensor_map','Sensor MAP'),
-        ('sensor_rpm','Sensor de RPM / Cigueñal'),
+        ('sensor_rpm','Sensor de Rotacion / RPM'),
         ('sensor_maf','Sensor MAF'),
+        ('motor_pasoapaso','Motor Paso a Paso'),
         # Podés seguir agregando tipos acá
     ], string="Tipo de Repuesto", tracking=True)
 
