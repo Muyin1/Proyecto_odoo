@@ -18,6 +18,7 @@
             <field name="codigo_oem"/>
             <field name="tipo_repuesto"/>
             <field name="marca"/>
+            <field name="categ_id" string="Categoria"/>
             <field name="list_price" string="Precio de Venta"/>
             <field name="vehiculo_ids" widget="many2many_tags"/>
           </group>
