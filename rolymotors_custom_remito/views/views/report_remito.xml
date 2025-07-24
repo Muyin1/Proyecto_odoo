@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_remito_x_custom" model="ir.actions.report">
+        <field name="name">Remito X (Personalizado)</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">rolymotors_custom_remito.report_remito_x_template</field>
+        <field name="report_file">rolymotors_custom_remito.report_remito_x_template</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_remito_x_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="mt-4">REMITO X</h2>
+
+                        <div class="row mt32 mb32">
+                            <div class="col-6">
+                                <strong>Dirección de Entrega:</strong><br/>
+                                <address t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["name", "address"], "no_marker": True}'/>
+                            </div>
+                            <div class="col-5 offset-1 text-right">
+                                <p><strong>Nro de Remito:</strong> <span t-field="o.name"/></p>
+                                <p><strong>Fecha:</strong> <span t-field="o.scheduled_date" t-options='{"widget": "date"}'/></p>
+                                <p t-if="o.origin"><strong>Pedido de Origen:</strong> <span t-field="o.origin"/></p>
+                            </div>
+                        </div>
+
+                        <table class="table table-sm mt-4">
+                            <thead>
+                                <tr>
+                                    <th name="th_description">Producto</th>
+                                    <th name="th_quantity" class="text-right">Cantidad Entregada</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.move_ids_without_package" t-as="move">
+                                    <tr>
+                                        <td>
+                                            <span t-field="move.product_id.display_name"/>
+                                            <p t-if="move.description_picking" class="text-muted"><small><t t-esc="move.description_picking"/></small></p>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="move.quantity_done"/>
+                                            <span t-field="move.product_uom"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        
+                        <div class="row mt-5 pt-5">
+                            <div class="col-6 text-center">
+                                <hr style="border-top: 1px solid black;"/>
+                                <strong>Firma de quien entrega</strong>
+                            </div>
+                             <div class="col-6 text-center">
+                                <hr style="border-top: 1px solid black;"/>
+                                <strong>Firma, aclaración y DNI de quien recibe</strong>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
