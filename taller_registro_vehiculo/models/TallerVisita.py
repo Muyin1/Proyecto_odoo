@@ -3,6 +3,7 @@ from odoo import models, fields, api
 class TallerVisita(models.Model):
     _name = 'taller.visita'
     _description = 'Visita de Vehiculo al Taller'
+    company_id = fields.Many2one('res.company', string='Compañía', required=True, default=lambda self: self.env.company)
 
     name = fields.Char(string='Nombre', compute='_compute_name', store=True)
     vehiculo_id = fields.Many2one('taller.vehiculo', string='Vehiculo', required=True)

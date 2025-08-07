@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-
-    <record id="action_report_taller_visita" model="ir.actions.report">
-        <field name="name">Constancia de Trabajo</field>
-        <field name="model">taller.visita</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">taller_registro_vehiculo.report_visita_template</field>
-        <field name="report_file">taller_registro_vehiculo.report_visita_template</field>
-        <field name="binding_model_id" ref="model_taller_visita"/>
-        <field name="binding_type">report</field>
-    </record>
-
-    <template id="report_visita_template">
+<template id="report_visita_template">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <div class="article">
@@ -34,7 +21,7 @@
                     </div>
                     
                     <div class="page">
-                        <h2 class="mt-4">CONSTANCIA DE TRABAJO REALIZADO</h2>
+                        <h3 class="mt-4 text-center">CONSTANCIA DE TRABAJO REALIZADO</h3>
                         
                         <div class="row mt32 mb32">
                             <div class="col-6">
@@ -50,45 +37,39 @@
                             </div>
                         </div>
 
-                        <h4>Detalles del Servicio</h4>
                         <table class="table table-sm table-bordered">
-                            <tbody>
-                                <tr>
-                                    <td><strong>Fecha de Ingreso:</strong></td>
-                                    <td><span t-field="o.fecha" t-options='{"widget": "date"}'/></td>
-                                </tr>
-                                <tr t-if="o.fecha_salida">
-                                    <td><strong>Fecha de Salida:</strong></td>
-                                    <td><span t-field="o.fecha_salida" t-options='{"widget": "date"}'/></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Tipo de Trabajo:</strong></td>
-                                    <td><span t-field="o.tipo_trabajo"/></td>
-                                </tr>
-                                <tr t-if="o.notas">
-                                    <td colspan="2"><strong>Notas / Trabajo Realizado:</strong><br/>
-                                    <span t-field="o.notas"/></td>
-                                </tr>
-                            </tbody>
+                           <tr>
+                                <td><strong>Fecha de Ingreso:</strong></td>
+                                <td><span t-field="o.fecha" t-options='{"widget": "date"}'/></td>
+                                <td><strong>Tipo de Trabajo:</strong></td>
+                                <td><span t-field="o.tipo_trabajo"/></td>
+                            </tr>
                         </table>
+
+                        <div t-if="o.notas" class="mt-4">
+                            <h4>Descripción del Trabajo Realizado</h4>
+                            <p><span t-field="o.notas"/></p>
+                        </div>
                         
-                        <h4 class="mt-4" t-if="o.piezas_usadas">Piezas Utilizadas</h4>
-                        <table class="table table-sm" t-if="o.piezas_usadas">
-                            <thead>
-                                <tr>
-                                    <th>Marca</th>
-                                    <th>Código</th>
-                                    <th>Descripción</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr t-foreach="o.piezas_usadas" t-as="pieza">
-                                    <td><span t-field="pieza.marca"/></td>
-                                    <td><span t-field="pieza.codigo_pieza"/></td>
-                                    <td><span t-field="pieza.descripcion"/></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div t-if="o.piezas_usadas" class="mt-4">
+                            <h4>Piezas Utilizadas</h4>
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 25%;">Marca</th>
+                                        <th style="width: 25%;">Código</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.piezas_usadas" t-as="pieza">
+                                        <td><span t-field="pieza.marca"/></td>
+                                        <td><span t-field="pieza.codigo_pieza"/></td>
+                                        <td><span t-field="pieza.descripcion"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         
                         <div class="footer" style="position: absolute; bottom: 50px; width: 95%;">
                             <div class="row">
@@ -108,4 +89,3 @@
             </t>
         </t>
     </template>
-</odoo>
