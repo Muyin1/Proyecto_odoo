@@ -1,4 +1,17 @@
-<template id="report_visita_template">
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_taller_visita" model="ir.actions.report">
+        <field name="name">Constancia de Trabajo</field>
+        <field name="model">taller.visita</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">taller_registro_vehiculo.report_visita_template</field>
+        <field name="report_file">taller_registro_vehiculo.report_visita_template</field>
+        <field name="binding_model_id" ref="model_taller_visita"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_visita_template">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <div class="article">
@@ -83,9 +96,10 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </t>
         </t>
     </template>
+    
+</odoo>
