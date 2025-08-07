@@ -10,6 +10,7 @@
         'views/taller_menu.xml',
         'views/taller_visita_views.xml',
         'security/ir.model.access.csv',
+        'report/taller_report.xml',
 
         ],
     'installable' : True,

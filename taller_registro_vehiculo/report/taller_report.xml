@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_taller_visita" model="ir.actions.report">
+        <field name="name">Constancia de Trabajo</field>
+        <field name="model">taller.visita</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">taller_registro_vehiculo.report_visita_template</field>
+        <field name="report_file">taller_registro_vehiculo.report_visita_template</field>
+        <field name="binding_model_id" ref="model_taller_visita"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_visita_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="article">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-6 mb4">
+                                <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height: 45px;" alt="Logo"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <strong t-field="o.company_id.name"/>
+                                <address t-field="o.company_id.partner_id" t-options='{"widget": "contact", "fields": ["address", "phone", "email", "website"], "no_marker": True}'/>
+                                <span t-if="o.company_id.vat">CUIT: <span t-field="o.company_id.vat"/></span>
+                            </div>
+                        </div>
+                        <div class="row zero_min_height">
+                            <div class="col-12">
+                                <div style="border-bottom: 1px solid black;"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="page">
+                        <h2 class="mt-4">CONSTANCIA DE TRABAJO REALIZADO</h2>
+                        
+                        <div class="row mt32 mb32">
+                            <div class="col-6">
+                                <strong>Cliente:</strong>
+                                <address t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["name", "address", "phone", "email"], "no_marker": True}'/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Vehículo:</strong><br/>
+                                <span><strong>Marca:</strong> <span t-field="o.marca"/></span><br/>
+                                <span><strong>Modelo:</strong> <span t-field="o.modelo"/></span><br/>
+                                <span><strong>Patente:</strong> <span t-field="o.patente"/></span><br/>
+                                <span><strong>Kilómetros:</strong> <span t-field="o.kilometros"/></span>
+                            </div>
+                        </div>
+
+                        <h4>Detalles del Servicio</h4>
+                        <table class="table table-sm table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Fecha de Ingreso:</strong></td>
+                                    <td><span t-field="o.fecha" t-options='{"widget": "date"}'/></td>
+                                </tr>
+                                <tr t-if="o.fecha_salida">
+                                    <td><strong>Fecha de Salida:</strong></td>
+                                    <td><span t-field="o.fecha_salida" t-options='{"widget": "date"}'/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tipo de Trabajo:</strong></td>
+                                    <td><span t-field="o.tipo_trabajo"/></td>
+                                </tr>
+                                <tr t-if="o.notas">
+                                    <td colspan="2"><strong>Notas / Trabajo Realizado:</strong><br/>
+                                    <span t-field="o.notas"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h4 class="mt-4" t-if="o.piezas_usadas">Piezas Utilizadas</h4>
+                        <table class="table table-sm" t-if="o.piezas_usadas">
+                            <thead>
+                                <tr>
+                                    <th>Marca</th>
+                                    <th>Código</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.piezas_usadas" t-as="pieza">
+                                    <td><span t-field="pieza.marca"/></td>
+                                    <td><span t-field="pieza.codigo_pieza"/></td>
+                                    <td><span t-field="pieza.descripcion"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="footer" style="position: absolute; bottom: 50px; width: 95%;">
+                            <div class="row">
+                                <div class="col-6 text-center">
+                                    <hr style="border-top: 1px solid black;"/>
+                                    <strong>Firma del Taller</strong>
+                                </div>
+                                 <div class="col-6 text-center">
+                                    <hr style="border-top: 1px solid black;"/>
+                                    <strong>Firma del Cliente</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
