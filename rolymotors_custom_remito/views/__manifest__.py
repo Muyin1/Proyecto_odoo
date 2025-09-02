@@ -12,6 +12,7 @@
     'depends': ['stock'],  # Depende solo de inventario, no de l10n_ar
     'data': [
         'views/report_remito.xml',
+        'views/sale_report_inherit.xml',
     ],
     'installable': True,
     'application': False,

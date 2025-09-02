@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_saleorder_document_inherit_vehicle_notes" inherit_id="sale.report_saleorder_document">
+
+            <xpath expr="//span[@name='order_note']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[@id='informations']" position="after">
+                <div t-if="doc.note" class="row mt-4" name="vehicle_details">
+                    <div class="col-12">
+                        <strong>Detalles del Vehículo y Notas Adicionales:</strong>
+                        <p t-field="doc.note" class="mt-2"/>
+                    </div>
+                </div>
+            </xpath>
+
+        </template>
+    </data>
+</odoo>
