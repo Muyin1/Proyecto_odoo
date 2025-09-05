@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="module_category_taller" model="ir.module.category">
+            <field name="name">Taller</field>
+            <field name="description">Permisos para el módulo de Taller</field>
+        </record>
+
+        <record id="group_taller_notificaciones" model="res.groups">
+            <field name="name">Recibe Notificaciones del Taller</field>
+            <field name="category_id" ref="module_category_taller"/>
+            <field name="comment">Los usuarios en este grupo recibirán notificaciones sobre nuevos trabajos pendientes en el taller.</field>
+        </record>
+    </data>
+</odoo>

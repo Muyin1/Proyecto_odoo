@@ -26,6 +26,21 @@
                         </page>
                     </notebook>
                 </sheet>
+                <record id="view_form_taller_visita" model="ir.ui.view">
+                    <field name="name">taller.visita.form</field>
+                    <field name="model">taller.visita</field>
+                    <field name="arch" type="xml">
+                        <form string="Visita del Taller">
+                            <sheet>
+                                </sheet>
+                            <div class="oe_chatter">
+                                <field name="message_follower_ids"/>
+                                <field name="activity_ids"/>
+                                <field name="message_ids"/>
+                            </div>
+                        </form>
+                    </field>
+                 </record>
             </form>
         </field>
     </record>
